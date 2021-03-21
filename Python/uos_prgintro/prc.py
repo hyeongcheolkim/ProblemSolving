@@ -1,0 +1,3 @@
+hi=print
+
+hi("hello")
