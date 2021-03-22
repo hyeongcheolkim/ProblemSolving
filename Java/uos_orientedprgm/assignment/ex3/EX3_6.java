@@ -59,7 +59,7 @@ public class EX3_6 {
             for (int r = 0; r < 3; r++) {
                 boolean flag = true;
                 for (int c = 0; c < 3; c++)
-                    if (board[r][c] != 'X')
+                    if (board[c][r] != 'X')
                         flag = false;
                 if (flag)
                     winner = 'U';
@@ -104,7 +104,7 @@ public class EX3_6 {
             for (int r = 0; r < 3; r++) {
                 boolean flag = true;
                 for (int c = 0; c < 3; c++)
-                    if (board[r][c] != 'O')
+                    if (board[c][r] != 'O')
                         flag = false;
                 if (flag)
                     winner = 'C';
