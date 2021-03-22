@@ -1,3 +1,8 @@
+// University of Seoul. Dept of Computer Science.
+// 2018430021 김형철
+// EX3_7
+
+
 import java.util.Random;
 
 public class EX3_7 {
