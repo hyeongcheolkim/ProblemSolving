@@ -1,3 +1,7 @@
+// University of Seoul. Dept of Computer Science.
+// 2018430021 김형철
+// EX3_4
+
 import java.util.*;
 
 public class EX3_4 {
@@ -10,6 +14,7 @@ public class EX3_4 {
         double a = sc.nextDouble();
         double b = sc.nextDouble();
 
+        //스위치문을 이용한 계산기 연산.
         switch (opt) {
         case '+':
             System.out.printf("%.1f + %.1f = %.1f", a, b, a + b);
@@ -22,7 +27,7 @@ public class EX3_4 {
             break;
         case '/':
             if (b == 0) {
-                System.out.print("inf");
+                System.out.print("inf"); //b=0일때 inf값이 나오도록 예외처리.
                 break;
             }
             System.out.printf("%.1f / %.1f = %.1f", a, b, a / b);
