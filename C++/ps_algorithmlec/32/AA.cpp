@@ -18,8 +18,8 @@ int main()
     for (int i = 0; i < n-1;i++)
     {
         static int min_index = -1;
-        static int min = 2700000;
-        min = 2700000;
+        static int min = arr[i];
+        min = arr[i];
         for (int j = i+1; j < n; j++)
             if(arr[j]<min)
             {
