@@ -27,35 +27,22 @@ int main()
         while (arr1End && arr2End)
         {
             if (arr1[cur1] <= arr2[cur2])
-            {
-                res[curRes] = move(arr1[cur1]);
-                cur1++;
-                curRes++;
-            }
+                res[curRes++] = move(arr1[cur1++]);
+
             if (arr1[cur1] > arr2[cur2])
-            {
-                res[curRes] = move(arr2[cur2]);
-                cur2++;
-                curRes++;
-            }
+                res[curRes++] = move(arr2[cur2++]);
+
             if (cur1 == n)
                 arr1End = false;
             if (cur2 == m)
                 arr2End = false;
         }
-        if (arr1End)
-        {
-            res[curRes] = move(arr1[cur1]);
-            cur1++;
-            curRes++;
-        }
-        if (arr2End)
-        {
-            res[curRes] = move(arr2[cur2]);
-            cur2++;
-            curRes++;
-        }
 
+        if (arr1End)
+            res[curRes++] = move(arr1[cur1++]);
+        if (arr2End)
+            res[curRes++] = move(arr2[cur2++]);
+            
         if (cur1 == n)
             arr1End = false;
         if (cur2 == m)
