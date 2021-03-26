@@ -10,7 +10,7 @@ public class Television {
     }
 
     void print() {
-        System.out.println("채널은" + channel + "이고 볼륨은" + volume + "입니다.");
+        System.out.println("채널은" + channel + "이고 볼륨은" + volume + "입니다."+"TV는"+(onOff?"켜져있습니다":"꺼져있습니다"));
     }
 
     public static void main(String[] args) throws Exception {
