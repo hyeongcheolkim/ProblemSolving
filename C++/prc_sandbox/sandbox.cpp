@@ -1,13 +1,26 @@
 #include <iostream>
-#include <string>
+#include <vector>
 
 using namespace std;
 
+void fnc(vector<vector<int>> &arr, const int &n, const int &m);
+
 int main()
 {
-    char *str = new char[10];
-    cin >> str;
-    cout << str;
+    int n = 5, m = 5;
+    vector<vector<int>> arr;
+    arr.assign(n, vector<int>(m, 0));
 
-    return 0;
+    fnc(arr, n, m);
+
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            cout << arr[i][j] << "# ";
+}
+
+void fnc( vector<vector<int>> &arr, const int &n, const int &m)
+{
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < m; j++)
+            arr[i][j] = i*10+j ;
 }
