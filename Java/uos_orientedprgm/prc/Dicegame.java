@@ -20,7 +20,7 @@ public class Dicegame {
 }
 
 class Dice {
-    public int value;
+    private int value;
     Random rand = new Random();
 
     int getValue() {
