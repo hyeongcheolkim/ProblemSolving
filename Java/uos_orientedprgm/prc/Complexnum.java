@@ -1,8 +1,6 @@
 public class Complexnum {
     public static void main(String[] args) throws Exception {
         Complex complex = new Complex();
-        complex.print();
-        System.out.print('\n');
         complex.setReal(10).setImage(20).print();
     }
 }
