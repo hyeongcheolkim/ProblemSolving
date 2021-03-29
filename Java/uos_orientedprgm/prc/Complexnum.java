@@ -16,17 +16,17 @@ class Complex {
         image = 0;
     }
 
-    Complex setReal(int real) {
+    public Complex setReal(int real) {
         this.real = real;
         return this;
     }
 
-    Complex setImage(int image) {
+    public Complex setImage(int image) {
         this.image = image;
         return this;
     }
 
-    void print() {
+    public void print() {
         System.out.printf("%d+%di", real, image);
     }
 }
