@@ -11,7 +11,7 @@ public class Dicegame {
         do{
             dice1.roll();
             dice2.roll();
-            System.out.println("주사위 1=" + dice1.getValue() + " 주사위2=" + dice2.getValue());
+            System.out.println("주사위1=" + dice1.getValue() + " 주사위2=" + dice2.getValue());
             repeat++;
         } while (dice1.getValue() + dice2.getValue() != 2);
         
