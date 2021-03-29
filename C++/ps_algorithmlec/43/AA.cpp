@@ -40,8 +40,8 @@ int main()
         {
             static int tempsum;
             tempsum = 0;
-            while (tempsum + arr[index] <= cmp[mid]&&index<n)
-                tempsum += arr[index++];
+                while (tempsum + arr[index++] <= cmp[mid]&&index<n)
+                    tempsum += arr[index];
             disc++;
         }
         if(disc<=m)
