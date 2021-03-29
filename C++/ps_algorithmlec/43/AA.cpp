@@ -4,43 +4,54 @@
 #include <vector>
 #include <algorithm>
 #include <cmath>
+#include <limits>
 
 using namespace std;
-
-void calculatesum(const vector<int> &arr, const vector<int> &cursor, vector<int> &sum);
 
 int main()
 {
     int n, m;
+    int total = 0, min = INT_MAX;
+    int lt, rt, mid;
     cin >> n >> m;
     vector<int> arr(n);
-    vector<int> cursor(m + 1);
-    vector<int> sum(m, 0);
+
     for (auto &e : arr)
-        cin >> e;
-
-
-    for (int i = 0; i < m + 1; i++)
-        cursor[i] = n * i /m;
-    calculatesum(arr, cursor, sum);
-    int max = *max_element(sum.begin(), sum.end());
-
-
-
-    for (auto &e : sum)
-        cout << e << " ";
-
-    return 0;
-}
-
-void calculatesum(const vector<int> &arr, const vector<int> &cursor, vector<int> &sum)
-{
-    for (int i = 0; i < cursor.size() - 1;i++)
     {
-        static int total;
-        total = 0;
-        for (int j = cursor[i]; j < cursor[i + 1];j++)
-            total += arr[j];
-        sum[i] = total;
-    }       
+        cin >> e;
+        total += e;
+    }
+
+    vector<int> cmp(total);
+    for (int i = 0; i < total; i++)
+        cmp[i] = i + 1;
+
+    lt = 0;
+    rt = total-1;
+
+    while (lt <= rt)
+    {
+        static int disc;
+        static int index;
+        disc = 0;
+        index = 0;
+        mid = (lt + rt) / 2;
+        while (index != n)
+        {
+            static int tempsum;
+            tempsum = 0;
+            while (tempsum + arr[index] <= cmp[mid]&&index<n)
+                tempsum += arr[index++];
+            disc++;
+        }
+        if(disc<=m)
+        {
+            if(cmp[mid]<min)
+                min = cmp[mid];
+            rt = mid - 1;
+        }
+        else if(disc>m)
+            lt = mid + 1;
+    }
+    cout << min;
 }
