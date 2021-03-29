@@ -5,8 +5,6 @@ public class Dicegame {
         Dice dice1 = new Dice();
         Dice dice2 = new Dice();
         int repeat=0;
-        dice1.setValue(0);
-        dice2.setValue(0);
 
         do{
             dice1.roll();
@@ -23,15 +21,19 @@ class Dice {
     private int value;
     Random rand = new Random();
 
-    int getValue() {
+    public Dice() {
+        value = 0;
+    }
+
+    public int getValue() {
         return value;
     }
 
-    void setValue(int num) {
+    public void setValue(int num) {
         value = num;
     }
 
-    void roll(){
+    public void roll(){
         value = (rand.nextInt(5) + 1);
     }
 }
