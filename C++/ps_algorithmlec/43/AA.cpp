@@ -25,8 +25,8 @@ int main()
     vector<int> cmp(total);
     for (int i = 0; i < total; i++)
         cmp[i] = i + 1;
-
-    lt = 0;
+    int max_index = *max_element(arr.begin(),arr.end());
+    lt = max_index-1;
     rt = total-1;
 
     while (lt <= rt)
