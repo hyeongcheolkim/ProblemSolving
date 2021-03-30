@@ -5,7 +5,7 @@
 
 using namespace std;
 
-main()
+int main()
 {
     int n, k, p = 0, cnt = 0, tot = 0;
     cin >> n;
