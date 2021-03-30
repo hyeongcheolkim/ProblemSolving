@@ -7,39 +7,41 @@ using namespace std;
 
 main()
 {
-    int n, k, index = 1, cnt = 0;
-    bool flag = true;
+    int n, k, p = 0, cnt = 0, tot = 0;
     cin >> n;
     vector<int> arr(n + 1);
     for (int i = 1; i <= n; i++)
-        cin >> arr[i];
-    cin >> k;
-    
-    while (true)
     {
-        while (arr[index] == 0)
-        {
-            index++;
-            if (index > n)
-                index = index%n;
-            if (cnt == k)
-            {
-                flag = false;
-                break;
-            }
-        }
-        if (arr[index]-- == 1)
-            cnt++;
-
-        if (--k == 0)
-            break;
-        index++;
-        if (index > n)
-            index = index%n;
+        cin >> arr[i];
+        tot += arr[i];
     }
-    if (cnt==n)
+    cin >> k;
+
+    if (k >= tot)
+    {
         cout << -1;
-    else
-        cout << index;
+        return 0;
+    }
+    while(1)
+    {
+        p++;
+        if(p>n)
+            p = 1;
+        if(arr[p]==0)
+            continue;
+        arr[p]--;
+        cnt++;
+        if(cnt==k)
+            break;
+    }
+    while(1)
+    {
+        p++;
+        if(p>n)
+            p = 1;
+        if(arr[p]!=0)
+            break;
+    }
+    cout << p;
     return 0;
 }
