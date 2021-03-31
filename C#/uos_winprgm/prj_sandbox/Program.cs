@@ -9,7 +9,7 @@ namespace prj_sandbox
         {
             this.i = i;
         }
-        static void Swap( Program x,  Program y)
+        static void Swap( ref Program x, ref Program y)
         {
             Program temp = x;
             x = y;
@@ -19,7 +19,7 @@ namespace prj_sandbox
         {
             Program a = new Program(1);
             Program b = new Program(2);
-            Swap( a,  b);
+            Swap(ref a, ref b);
             Console.Write(a.i+"hi"+ b.i);
         }
     }
