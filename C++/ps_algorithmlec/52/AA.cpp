@@ -26,7 +26,7 @@ int main()
         three = arr[ptr_three] * 3;
         five = arr[ptr_five] * 5;
 
-        minimum = min(min(two, three), five);
+        minimum = min({two,three,five});
 
         if (minimum == two)
             ptr_two++;
