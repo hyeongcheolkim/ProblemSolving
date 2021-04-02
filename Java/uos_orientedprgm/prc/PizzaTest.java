@@ -16,6 +16,6 @@ public class PizzaTest {
         System.out.println("피자 토핑 =" + p1.toppings);
         System.out.println("피자 토핑 =" + p2.toppings);
         System.out.println("지금까지 판매된 피자 개수 =" + Pizza.count);
-        System.out.println("지금까지 판매된 피자 개수 =" + p1.count);
+        // System.out.println("지금까지 판매된 피자 개수 =" + p1.count);
     }
 }
