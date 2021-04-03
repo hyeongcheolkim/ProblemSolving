@@ -8,9 +8,8 @@ void fnc(vector<vector<int>> &arr, const int &n, const int &m);
 int main()
 {
     int n = 5, m = 5;
-    vector<vector<int>> arr;
-    arr.assign(n, vector<int>(m, 0));
-
+    vector<vector<int>> arr(n,vector<int>(m));
+    
     fnc(arr, n, m);
 
     for (int i = 0; i < n; i++)
