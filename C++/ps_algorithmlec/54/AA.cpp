@@ -1,32 +1,30 @@
 // cpp algorithm ps number 54
 
 #include <iostream>
-#include <stdio.h>
+#include <stack>
 
 using namespace std;
 
 int main()
 {
-    int open=0;
-    int close = 0;
-    bool flag = true;
+    stack<char> arr;
     char a;
-    while((a=getchar())!='\n')
+    while ((a = getchar()) != '\n')
     {
-        if(a=='(')
-            open++;
-        if(a==')')
-            close++;
-        if(close>open)
+        if (a == '(')
+            arr.push(a);
+        else if (a == ')')
         {
-            flag = false;
-            break;
+            if (arr.empty())
+            {
+                cout << "NO";
+                return 0;
+            }
+            else
+                arr.pop();
         }
     }
-    if(open!=close)
-        flag = false;
-
-    if(flag)
+    if (arr.empty())
         cout << "YES";
     else
         cout << "NO";
