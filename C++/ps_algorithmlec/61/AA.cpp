@@ -19,7 +19,11 @@ int main()
     for (int i = 0; i < n; i++)
         cin >> arr[i];
     fnc(0, n, m);
-    cout << counter;
+    
+    if (counter == 0)
+        cout << "-1";
+    else
+        cout << counter;
     return 0;
 }
 
