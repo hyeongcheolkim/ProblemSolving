@@ -4,7 +4,7 @@
 
 public class EX5_2 {
     static public void main(String args[]) {
-        PlaneTest test = new PlaneTest(3); //문제의 조건대로 3대 생성.
+        PlaneTest test = new PlaneTest(3); //문제의 조건대로 3대 생성. PlaneTest의 인수 문제조건상 >=3인 양의정수.
         test.print();
         System.out.print("항공기 대수 = " + Plane.getPlanes() + "대");
     }
