@@ -3,8 +3,9 @@ import java.util.*;
 public class Userprg {
 
     public static void main(String[] args) {
+        final int users_SIZE = 5;
         Scanner sc = new Scanner(System.in);
-        User[] users = new User[5];
+        User[] users = new User[users_SIZE];
         while (true) {
             int select;
             String userid;
@@ -19,8 +20,25 @@ public class Userprg {
             sc.nextLine();
             switch (select) {
             case 1:
-                System.out.print("아이디를 입력하세요:");
-                userid = sc.nextLine();
+                if (User.count == users_SIZE) {
+                    System.out.println("더이상 유저를 등록할 수 없습니다.");
+                    break;
+                }
+                while (true) {
+                    boolean flagid = true;
+                    System.out.print("아이디를 입력하세요:");
+                    userid = sc.nextLine();
+                    for (int i = 0; i < User.count; i++)
+                        if (users[i].getuserid().equals(userid))
+                        {
+                            System.out.println("중복된 아이디입니다. 다시입력하세요");
+                            flagid = false;
+                        }
+                    if(flagid)
+                        break;
+                    else
+                        continue;
+                }
                 System.out.print("비밀번호를 입력하세요:");
                 password = sc.nextLine();
                 users[User.count] = new User(userid, password);
@@ -32,8 +50,7 @@ public class Userprg {
                 System.out.print("비밀번호를 입력하세요:");
                 password = sc.nextLine();
                 for (int i = 0; i < User.count; i++)
-                    if (users[i].getuserid().equals(userid) && users[i].getpassword().equals(password))
-                    {
+                    if (users[i].getuserid().equals(userid) && users[i].getpassword().equals(password)) {
                         flag = true;
                         break;
                     }
@@ -45,7 +62,7 @@ public class Userprg {
             case 3:
                 System.out.println(">>=======userlist======<<");
                 for (int i = 0; i < User.count; i++)
-                    System.out.println((i+1)+". "+users[i].getuserid());
+                    System.out.println((i + 1) + ". " + users[i].getuserid());
                 System.out.println(">>=========end=========<<");
                 break;
             case 4:
