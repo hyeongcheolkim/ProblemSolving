@@ -6,7 +6,7 @@ public class Userprg {
         Scanner sc = new Scanner(System.in);
         User[] users = new User[5];
         while (true) {
-            int select = 0;
+            int select;
             String userid;
             String password;
             System.out.println("===========MENU==========");
@@ -33,7 +33,10 @@ public class Userprg {
                 password = sc.nextLine();
                 for (int i = 0; i < User.count; i++)
                     if (users[i].getuserid().equals(userid) && users[i].getpassword().equals(password))
+                    {
                         flag = true;
+                        break;
+                    }
                 if (flag)
                     System.out.println("로그인되었습니다.");
                 else
