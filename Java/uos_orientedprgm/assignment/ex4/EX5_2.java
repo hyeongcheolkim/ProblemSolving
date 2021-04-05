@@ -1,37 +1,59 @@
 // University of Seoul. Dept of Computer Science.
 // 2018430021 김형철
-// EX5_1
+// EX5_2
 
 public class EX5_2 {
     static public void main(String args[]) {
-   
+        PlaneTest test = new PlaneTest();
+        for (int i = 0; i < test.size(); i++) {
+            System.out.print(test.getplane(i).getmanufacturer()+" ");
+            System.out.print(test.getplane(i).getmodel()+" ");
+            System.out.print(test.getplane(i).getpassengers()+" \n");
+        }
+
         System.out.print("항공기 대수 = " + Plane.getPlanes());
     }
 }
 
 class PlaneTest {
-    public Plane p1 = new Plane();
-    public Plane p2 = new Plane();
-    public Plane p3 = new Plane();
+    private final int SIZE = 3;
+    private Plane[] planearr = new Plane[SIZE];
+
+    public PlaneTest() {
+        for (int i = 0; i < SIZE; i++)
+            planearr[i] = new Plane();
+        planearr[0].setmanufacturer("에어버스").setmodel("A380").setpassengers(500);
+        planearr[1].setmanufacturer("보잉").setmodel("B777").setpassengers(400);
+        planearr[2].setmanufacturer("보잉").setmodel("B747").setpassengers(500);
+    }
+
+    public Plane getplane(int index) {
+        return this.planearr[index];
+    }
+
+    public int size() {
+        return SIZE;
+    }
+
 }
 
 class Plane {
     private String manufacturer;
     private String model;
-    private int limit;
+    private int passengers;
     static int planes = 0;
 
     public Plane() {
         this.manufacturer = "default manufacturer";
         this.model = "default model";
-        this.limit = 0;
+        this.passengers = 0;
         planes++;
     }
 
-    public Plane(String manufacturer, String model, int limit) {
+    public Plane(String manufacturer, String model, int passengers) {
         this.manufacturer = manufacturer;
         this.model = model;
-        this.limit = limit;
+        this.passengers = passengers;
         planes++;
     }
 
@@ -47,22 +69,22 @@ class Plane {
         return this.model;
     }
 
-    public int getlimit() {
-        return this.limit;
+    public int getpassengers() {
+        return this.passengers;
     }
 
-    Plane setmanufacturer(String manufacturer) {
+    public Plane setmanufacturer(String manufacturer) {
         this.manufacturer = manufacturer;
         return this;
     }
 
-    Plane setmodel(String model) {
+    public Plane setmodel(String model) {
         this.model = model;
         return this;
     }
 
-    Plane setlimit(int limit) {
-        this.limit = limit;
+    public Plane setpassengers(int passengers) {
+        this.passengers = passengers;
         return this;
     }
 }
