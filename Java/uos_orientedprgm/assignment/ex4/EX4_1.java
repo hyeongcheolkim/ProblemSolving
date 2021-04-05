@@ -6,10 +6,12 @@ import java.util.*;
 
 public class EX4_1 {
     public static void main(String[] args) {
+        //dice 2개 인스턴스 생성. repeat으로 횟수를 샌다
         Dice dice1 = new Dice();
         Dice dice2 = new Dice();
         int repeat = 0;
 
+        //일단 한번 굴리고, 그 합이 2가되면 스탑. 2가안되면 무한반복
         do {
             dice1.roll();
             dice2.roll();
@@ -40,5 +42,4 @@ class Dice {
     public void roll() {
         value = (rand.nextInt(5) + 1);
     }
-
 }
