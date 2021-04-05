@@ -37,7 +37,7 @@ public class EX5_1 {
                 break;
             }
             if (!(0 <= num && num <= 9)) {
-                System.out.println(">1과 10사이의 좌석을 골라주십시오<");
+                System.out.println(">0과 9사이의 좌석을 골라주십시오<");
                 continue;
             }
             if (seat[num] == 1) {
