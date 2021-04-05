@@ -4,7 +4,7 @@
 
 public class EX5_2 {
     static public void main(String args[]) {
-        PlaneTest test = new PlaneTest(3);
+        PlaneTest test = new PlaneTest(3); //문제의 조건대로 3대 생성.
         test.print();
         System.out.print("항공기 대수 = " + Plane.getPlanes() + "대");
     }
