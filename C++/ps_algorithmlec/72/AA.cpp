@@ -13,7 +13,7 @@ int main()
     for (int i = 1; i <= n; i++)
         arr.push(i);
     for (int i = 1; arr.size() != 1; i++)
-        if (i % 3 != 0)
+        if (i % k != 0)
         {
             static int temp;
             temp = arr.front();
