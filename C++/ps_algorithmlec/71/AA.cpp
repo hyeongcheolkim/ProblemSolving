@@ -20,7 +20,6 @@ int main()
         if(arr.front()==e)
             break;
         temp = arr.front();
-        
         arr.pop();
         if (temp + 1 <= 10000 && !trace[temp + 1])
         {
@@ -39,6 +38,5 @@ int main()
         }
     }
     cout << trace[arr.front()]-1;
-
     return 0;
 }
