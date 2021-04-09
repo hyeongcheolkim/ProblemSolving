@@ -1,6 +1,8 @@
 import java.util.*;
 
-public class Userprg {
+public class Userprg
+
+{
 
     public static void main(String[] args) {
         final int users_SIZE = 5;
