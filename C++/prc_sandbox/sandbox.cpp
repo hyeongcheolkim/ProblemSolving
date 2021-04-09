@@ -1,11 +1,28 @@
 #include <iostream>
-#include <stack>
 
 using namespace std;
 
+class parents
+{
+    public:
+    void print()
+    {
+        cout << "i'm parents";
+    }
+}
+
+class child : parents
+{
+    public:
+    void print()
+    {
+        cout << "i'mchild";
+    }
+}
+
 int main()
 {
-    stack<int> arr;
-    cout << int(arr.top());
+    child obj;
+    obj.print();
 }
 
