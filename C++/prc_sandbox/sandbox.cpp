@@ -9,7 +9,7 @@ class parents
     {
         cout << "i'm parents";
     }
-}
+};
 
 class child : parents
 {
@@ -18,7 +18,7 @@ class child : parents
     {
         cout << "i'mchild";
     }
-}
+};
 
 int main()
 {
