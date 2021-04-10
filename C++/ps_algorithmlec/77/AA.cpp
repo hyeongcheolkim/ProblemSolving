@@ -10,7 +10,7 @@ int find(int num, vector<int> &arr)
     if (num == arr[num])
         return num;
     else
-        return find(arr[num], arr);
+        return arr[num]=find(arr[num], arr);
 }
 
 void uni(int a, int b, vector<int> &arr)
