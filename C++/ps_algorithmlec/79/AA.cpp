@@ -16,7 +16,7 @@ typedef struct edge
     }
     edge(const int a, const int b)
     {
-        vertex = a;
+        this->vertex = a;
         cost = b;
     }
 } edge;
