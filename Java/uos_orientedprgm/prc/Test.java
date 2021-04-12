@@ -1,6 +1,6 @@
 public class Test {
     public static void main(String[] args) throws Exception {
-        Derived obj = new Derived();
+        // Derived obj = new Derived();
     }
 }
 
