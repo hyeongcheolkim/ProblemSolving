@@ -14,7 +14,8 @@ public class GoldGame {
             char input = sc.nextLine().charAt(0);
             //몬스터의 move를 후순위로 배치함으로서, 사망판정시 M가 @를 가리게 한다.
             main.move(input);
-            monster.move('\0'); // 몬스터는 자동으로 움직이므로 함수인수 없음. 
+            monster.move('\0'); // 몬스터는 자동으로 움직이므로 함수인수 없음.
+
             //Rule:동시에 몬스터와 주인공이 골드를 가질경우, 주인공이 몬스터에 죽는걸로 판정
             if (main.compare(monster)) { 
                 System.out.println("몬스터를 만나 사망하였습니다...");
@@ -72,7 +73,6 @@ class Map {
 }
 
 abstract class Sprite {
-    Random rand = new Random();
     int row, column;
 
     abstract void move(char c);
