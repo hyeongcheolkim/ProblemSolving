@@ -18,7 +18,6 @@ void dfs(int level, vector<int> &arr)
         for (const auto &e : temp)
             cout << e << ' ';
         cout << '\n';
-
             return;
     }
 
