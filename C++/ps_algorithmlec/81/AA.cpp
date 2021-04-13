@@ -36,13 +36,13 @@ int main()
     for (int i = 1; i < n; i++)
         for (int j = 1; j <= n; j++)
         {
-            if (cost[i-1][j] != INT_MAX)
+            if (cost[i - 1][j] != INT_MAX)
                 for (int x = 0; x < map[j].size(); x++)
-                    if (cost[i][j]+map[j][x].cost < cost[i - 1][map[j][x].go])
-                        cost[i][map[j][x].go] = cost[i][j]+map[j][x].cost;
+                    if (cost[i][j] + map[j][x].cost < cost[i - 1][map[j][x].go])
+                        cost[i][map[j][x].go] = cost[i][j] + map[j][x].cost;
                     else
-                        cost[i][map[j][x].go] = cost[i-1][map[j][x].go];
+                        cost[i][map[j][x].go] = cost[i - 1][map[j][x].go];
         }
-    cout << cost.back()[destination];
+
     return 0;
 }
