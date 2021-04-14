@@ -5,6 +5,10 @@ class Animal {
 }
 
 public class Bird extends Animal {
+    void walk() {
+        System.out.println("걸을 수 없음.");
+    }
+
     void fly() {
         System.out.println("날 수 있음.");
     }
@@ -17,5 +21,8 @@ public class Bird extends Animal {
         bird.walk();
         bird.fly();
         bird.sing();
+        Animal obj;
+        obj = bird;
+        obj.walk();
     }
 }
