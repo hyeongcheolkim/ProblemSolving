@@ -1,28 +1,28 @@
 #include <iostream>
+#include <math.h>
+#include <algorithm>
 
 using namespace std;
 
-class parents
+typedef struct pos
 {
-    public:
-    void print()
+    int row, column;
+    pos(const int &row, const int &column)
     {
-        cout << "i'm parents";
+        this->row = row;
+        this->column = column;
     }
-};
-
-class child : parents
-{
-    public:
-    void print()
+    int distance(const pos &obj)
     {
-        cout << "i'mchild";
+        return (abs(this->row - obj.row) + abs(this->column - obj.column));
     }
-};
+} pos;
 
 int main()
 {
-    child obj;
-    obj.print();
+    pos a(1, 2);
+    pos b(2, 5);
+    cout << a.distance(b);
+    return 0;
 }
 
