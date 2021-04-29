@@ -1,4 +1,4 @@
-//baekjoon ps xx
+//baekjoon ps 10866
 
 #include <iostream>
 #include <deque>
@@ -6,139 +6,11 @@
 
 using namespace std;
 
-struct node
-{
-    int data;
-    node *previous;
-    node *next;
-    node()
-    {
-        data = 0;
-        next = nullptr;
-        previous = nullptr;
-    }
-    void setdata(const int &data)
-    {
-        this->data = data;
-    }
-    int getdata()
-    {
-        return this->data;
-    }
-    void setnext(node *next)
-    {
-        this->next = next;
-    }
-    node *getnext()
-    {
-        return this->next;
-    }
-    void setprevious(node *previous)
-    {
-        this->previous = previous;
-    }
-    node *getprevious()
-    {
-        return this->previous;
-    }
-};
-
-class mydeque
-{
-private:
-    node begin;
-    node end;
-    int _size;
-
-public:
-    mydeque()
-    {
-        begin.setnext(&end);
-        end.setprevious(&begin);
-        _size = 0;
-    }
-    void push_front(const int &n)
-    {
-        node *temp = new node();
-        temp->setdata(n);
-        temp->setnext(begin.getnext());
-        temp->setprevious(&begin);
-        (*begin.getnext()).setprevious(temp);
-        begin.setnext(temp);
-        _size++;
-    }
-    void push_back(const int &n)
-    {
-        node *temp = new node();
-        temp->setdata(n);
-        temp->setprevious(end.getprevious());
-        temp->setnext(&end);
-        (*end.getprevious()).setnext(temp);
-        end.setprevious(temp);
-        _size++;
-    }
-    void pop_front()
-    {
-        if (_size == 0)
-            cout << -1 << '\n';
-        else
-        {
-            cout << (*begin.getnext()).getdata() << '\n';
-            node *tempptr = (*begin.getnext()).getnext();
-            delete begin.getnext();
-            begin.setnext(tempptr);
-            tempptr = nullptr;
-            _size--;
-            delete tempptr;
-        }
-    }
-    void pop_back()
-    {
-        if (_size == 0)
-            cout << -1 << '\n';
-        else
-        {
-            cout << (*end.getprevious()).getdata() << '\n';
-            node *tempptr = (*end.getprevious()).getprevious();
-            delete end.getprevious();
-            end.setprevious(tempptr);
-            tempptr = nullptr;
-            _size--;
-            delete tempptr;
-        }
-    }
-    void size()
-    {
-        cout << _size << '\n';
-    }
-    void empty()
-    {
-        if (_size == 0)
-            cout << 1 << '\n';
-        else
-            cout << 0 << '\n';
-    }
-    void front()
-    {
-        if (_size == 0)
-            cout << -1 << '\n';
-        else
-            cout << (*begin.getnext()).getdata() << '\n';
-    }
-    void back()
-    {
-        if (_size == 0)
-            cout << -1 << '\n';
-        else
-            cout << (*end.getprevious()).getdata() << '\n';
-    }
-};
-
-int main() 
+int main()
 
 {
     ios_base::sync_with_stdio(false);
-    mydeque dq;
+    deque<int> dq;
     cin.tie(NULL);
     cout.tie(NULL);
     int n;
@@ -159,17 +31,49 @@ int main()
             dq.push_back(input);
         }
         else if (str == "pop_front")
-            dq.pop_front();
+        {
+            if (dq.size() == 0)
+                cout << -1 << '\n';
+            else
+            {
+                cout << dq.front() << '\n';
+                dq.pop_front();
+            }
+        }
         else if (str == "pop_back")
-            dq.pop_back();
+        {
+            if (dq.size() == 0)
+                cout << -1 << '\n';
+            else
+            {
+                cout << dq.back() << '\n';
+                dq.pop_back();
+            }
+        }
         else if (str == "size")
-            dq.size();
+            cout << dq.size() << '\n';
         else if (str == "empty")
-            dq.empty();
+            cout << dq.empty() << '\n';
         else if (str == "front")
-            dq.front();
+        {
+            if (dq.size() == 0)
+                cout << -1 << '\n';
+            else
+            {
+                cout << dq.front() << '\n';
+                dq.front();
+            }
+        }
         else if (str == "back")
-            dq.back();
+        {
+            if (dq.size() == 0)
+                cout << -1 << '\n';
+            else
+            {
+                cout << dq.back() << '\n';
+                dq.back();
+            }
+        }
     }
     return 0;
 }
