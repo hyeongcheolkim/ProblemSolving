@@ -11,11 +11,11 @@ ull bfs(ull a, ull b, ull c)
     if (b == 0)
         return 1;
     ull temp = bfs(a, b / 2, c);
-    temp = temp * temp % c;
+    temp = (temp % c * temp % c) % c;
     if (b % 2 == 0)
         return temp;
     else
-        return (temp * a) % c;
+        return (temp % c * a % c) % c;
 }
 
 int main()
