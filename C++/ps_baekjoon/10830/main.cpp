@@ -2,19 +2,21 @@
 
 #include <iostream>
 #include <vector>
-#include <map>
 
 using namespace std;
-typedef vector<vector<unsigned long long>> matrix;
-constexpr unsigned long long M = 1000;
-unsigned long long n, b;
+
+typedef unsigned long long ull;
+typedef vector<vector<ull>> matrix;
+
+constexpr ull M = 1000;
+ull n, b;
 
 matrix multiply(const matrix &A, const matrix &B)
 {
-    matrix res(n, vector<unsigned long long>(n, 0));
-    for (unsigned long long i = 0; i < n; i++)
-        for (unsigned long long j = 0; j < n; j++)
-            for (unsigned long long x = 0; x < n; x++)
+    matrix res(n, vector<ull>(n, 0));
+    for (ull i = 0; i < n; i++)
+        for (ull j = 0; j < n; j++)
+            for (ull x = 0; x < n; x++)
             {
                 res[i][j] += (A[i][x] % M * B[x][j] % M) % M;
                 res[i][j] %= M;
@@ -22,9 +24,9 @@ matrix multiply(const matrix &A, const matrix &B)
     return res;
 }
 
-matrix bfs(matrix A, unsigned long long exp)
+matrix bfs(matrix A, ull exp)
 {
-    matrix res(n, vector<unsigned long long>(n, 0));
+    matrix res(n, vector<ull>(n, 0));
     for (int i = 0; i < n; i++)
         res[i][i] = 1;
     while (exp)
@@ -41,14 +43,14 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin >> n >> b;
-    matrix A(n, vector<unsigned long long>(n));
-    for (unsigned long long i = 0; i < n; i++)
-        for (unsigned long long j = 0; j < n; j++)
+    matrix A(n, vector<ull>(n));
+    for (ull i = 0; i < n; i++)
+        for (ull j = 0; j < n; j++)
             cin >> A[i][j];
     auto res = bfs(A, b);
-    for (unsigned long long i = 0; i < n; i++)
+    for (ull i = 0; i < n; i++)
     {
-        for (unsigned long long j = 0; j < n; j++)
+        for (ull j = 0; j < n; j++)
             cout << res[i][j] << " ";
         cout << '\n';
     }
