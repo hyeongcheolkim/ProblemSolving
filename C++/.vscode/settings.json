@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.html": "html",
         "vector": "cpp",
         "iostream": "cpp",
         "array": "cpp",
@@ -53,6 +54,7 @@
         "stop_token": "cpp",
         "thread": "cpp",
         "stack": "cpp",
-        "queue": "cpp"
+        "queue": "cpp",
+        "map": "cpp"
     }
 }
