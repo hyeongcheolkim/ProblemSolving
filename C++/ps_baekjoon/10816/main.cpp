@@ -10,6 +10,8 @@ using namespace std;
 int main()
 {
     ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
     int n, m;
     cin >> n;
     vector<int> arr(n);
@@ -24,31 +26,30 @@ int main()
     for (const auto &e : data)
     {
         int lt = 0;
-        int rt = arr.size();
+        int rt = arr.size()-1;
         int mid;
         int res;
-        while (lt < rt)
+        while (lt <= rt)
         {
             mid = (lt + rt) / 2;
             if (arr[mid] <= e)
                 lt = mid + 1;
             else
-                rt = mid;
+                rt = mid - 1;
         }
-        res = rt;
+        cout << "1: " << lt<<" "<<rt << '\n';
         lt = 0;
-        rt = arr.size();
+        rt = arr.size()-1;
         mid;
-        while (lt < rt)
+        while (lt <= rt)
         {
             mid = (lt + rt) / 2;
             if (arr[mid] < e)
                 lt = mid + 1;
             else
-                rt = mid;
+                rt = mid - 1;
         }
-        cout << res-rt << '\n';
+        cout << "2: " << lt <<" "<<rt << '\n';
     }
-
     return 0;
 }
