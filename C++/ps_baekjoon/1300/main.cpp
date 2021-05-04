@@ -10,16 +10,16 @@ typedef long long ll;
 int main()
 {
     ios_base::sync_with_stdio(false);
-    int n, k;
+    ll n, k;
     cin >> n >> k;
     ll lt, rt, mid, res;
     lt = 1;
     rt = k;
     while (lt <= rt)
     {
-        int mid = (lt + rt) / 2;
+        ll mid = (lt + rt) / 2;
         ll num = 0;
-        for (int i = 1; i <= n; i++)
+        for (ll i = 1; i <= n; i++)
             num += min(mid / i, n);
         if (num < k)
             lt = mid + 1;
