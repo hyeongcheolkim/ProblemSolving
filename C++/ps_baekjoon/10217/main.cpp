@@ -58,11 +58,11 @@ int main()
             }
         }
 
-        res = *min_element(dp[n].begin()+1, dp[n].end());
+        res = *min_element(dp[n].begin() + 1, dp[n].end());
         if (res == INF)
-            cout
-                << "Poor KCM" << '\n';
-        else cout << res << '\n';
+            cout << "Poor KCM" << '\n';
+        else
+            cout << res << '\n';
     }
     return 0;
 }
