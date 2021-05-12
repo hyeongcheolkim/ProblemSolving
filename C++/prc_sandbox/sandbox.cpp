@@ -6,6 +6,11 @@
 
 using namespace std;
 
+bool cmp(const pair<int, int> &a, const pair<int, int> &b)
+{
+    return a.second < b.second;
+}
+
 int solution(vector<int> food_times, long long k)
 {
     int answer = 0;
@@ -32,7 +37,10 @@ int solution(vector<int> food_times, long long k)
     if (arr.empty())
         answer = -1;
     else
+    {
+        sort(arr.begin(), arr.end(), cmp);
         answer = arr[k].second;
+    }
     return answer;
 }
 
