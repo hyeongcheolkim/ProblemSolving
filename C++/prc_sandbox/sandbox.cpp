@@ -1,28 +1,47 @@
 #include <iostream>
-#include <math.h>
+#include <vector>
 #include <algorithm>
+#include <utility>
+#include <deque>
 
 using namespace std;
 
-typedef struct pos
+int solution(vector<int> food_times, long long k)
 {
-    int row, column;
-    pos(const int &row, const int &column)
+    int answer = 0;
+    deque<pair<int, int>> arr(food_times.size());
+    for (int i = 0; i < arr.size(); i++)
+        arr[i] = {food_times[i], i + 1};
+    sort(arr.begin(), arr.end());
+    while (!arr.empty())
     {
-        this->row = row;
-        this->column = column;
+        int implier = arr.front().first;
+        while (implier * arr.size() > k)
+            implier--;
+        if (implier > 0)
+        {
+            k -= implier * arr.size();
+            for (int i = arr.size() - 1; i >= 0; i--)
+                arr[i].first -= implier;
+            while (arr.front().first == 0)
+                arr.pop_front();
+        }
+        else
+            break;
     }
-    int distance(const pos &obj)
-    {
-        return (abs(this->row - obj.row) + abs(this->column - obj.column));
-    }
-} pos;
+    if (arr.empty())
+        answer = -1;
+    else
+        answer = arr[k].second;
+    return answer;
+}
 
 int main()
 {
-    pos a(1, 2);
-    pos b(2, 5);
-    cout << a.distance(b);
-    return 0;
+    vector<int> food_times(3);
+    food_times[0] = 3;
+    food_times[1] = 1;
+    food_times[2] = 2;
+    int k = 5;
+    cout << solution(food_times, k);
 }
-
