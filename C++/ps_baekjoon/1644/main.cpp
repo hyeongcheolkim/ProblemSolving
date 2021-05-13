@@ -23,12 +23,10 @@ int main()
     for (int i = 2; i <= n; i++)
         if (arr[i])
             dp.push_back(i);
-    int index = upper_bound(dp.begin(), dp.end(), n) - dp.begin();
     for (int i = 1; i < dp.size(); i++)
         dp[i] += dp[i - 1];
-
-    int lt = index - 2;
-    int rt = index - 1;
+    int lt = dp.size() - 2;
+    int rt = dp.size() - 1;
     while (0 <= lt)
     {
         int sum = dp[rt] - dp[lt];
