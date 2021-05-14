@@ -56,5 +56,8 @@
         "stack": "cpp",
         "queue": "cpp",
         "map": "cpp"
-    }
+    },
+    "cSpell.ignoreWords": [
+        "baekjoon"
+    ]
 }
