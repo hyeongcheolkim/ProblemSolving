@@ -12,6 +12,7 @@ vector<pair<int, int>> *map;
 bool *check;
 int maxi = -1;
 int vertex = -1;
+
 void bfs(int v, int sum)
 {
     if (map[v].size() == 1 && check[map[v][0].first])
@@ -34,20 +35,19 @@ int main()
 {
     ios_base::sync_with_stdio(false);
     cin >> v;
+    if(v==1)
+    {
+        cout << 0;
+        return 0;
+    }
     map = new vector<pair<int, int>>[v + 1];
     check = new bool[v + 1]{false};
-    for (int i = 0; i < v; i++)
+    for (int i = 0; i < v - 1; i++)
     {
         static int to, go, cost;
-        cin >> to;
-        while (true)
-        {
-            cin >> go;
-            if (go == -1)
-                break;
-            cin >> cost;
-            map[to].push_back({go, cost});
-        }
+        cin >> to >> go >> cost;
+        map[to].push_back({go, cost});
+        map[go].push_back({to, cost});
     }
     bfs(1, 0);
     bfs(vertex, 0);
