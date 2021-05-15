@@ -12,34 +12,25 @@ void preorder(char node)
 {
     if (node == '.')
         return;
-    if (map[node].size() == 2)
-    {
-        cout << node;
-        preorder(map[node][0]);
-        preorder(map[node][1]);
-    }
+    cout << node;
+    preorder(map[node][0]);
+    preorder(map[node][1]);
 }
 void inorder(char node)
 {
     if (node == '.')
         return;
-    if (map[node].size() == 2)
-    {
-        inorder(map[node][0]);
-        cout << node;
-        inorder(map[node][1]);
-    }
+    inorder(map[node][0]);
+    cout << node;
+    inorder(map[node][1]);
 }
 void postorder(char node)
 {
     if (node == '.')
         return;
-    if (map[node].size() == 2)
-    {
-        postorder(map[node][0]);
-        postorder(map[node][1]);
-        cout << node;
-    }
+    postorder(map[node][0]);
+    postorder(map[node][1]);
+    cout << node;
 }
 
 int main()
