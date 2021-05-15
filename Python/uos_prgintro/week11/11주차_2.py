@@ -12,6 +12,6 @@ def fibo(n):
         return 1
     res[n]=fibo(n-1)+fibo(n-2)
     return res[n]
-fibo(int(input("n을 입력하세요")))
+fibo(int(input("n을 입력하세요 fibo(n)출력:")))
 print(sorted(list(res.values())))
     
