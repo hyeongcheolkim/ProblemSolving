@@ -9,7 +9,6 @@ void recursion(int lt, int rt, const vector<int> &arr)
 {
     if (lt > rt)
         return;
-
     int root = arr[lt];
     int idx = lt + 1;
     while (idx <= rt)
