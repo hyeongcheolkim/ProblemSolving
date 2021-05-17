@@ -31,13 +31,9 @@ public class ComboBoxTest extends JFrame implements ActionListener {
     }
 
     public void changePicture(String name) {
-        ImageIcon icon = new ImageIcon("./"+name+".png");
+        ImageIcon icon = new ImageIcon("./" + name + ".png");
         label.setIcon(icon);
-        if (icon != null) {
-            label.setText(null);
-        } else {
-            label.setText("이미지가 발견되지 않았습니다.");
-        }
+        label.setText(null);
     }
 
     public static void main(String[] args) {
