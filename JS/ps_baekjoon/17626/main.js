@@ -8,6 +8,5 @@ for (let i = 1; i <= num; i++){
     dp[i] = dp[1] + dp[i - 1];
     for (let j = 2; j * j <= i; j++)
         dp[i] = Math.min(dp[i], 1 + dp[i - j * j]);
-    
 }
 console.log(dp[num]);
