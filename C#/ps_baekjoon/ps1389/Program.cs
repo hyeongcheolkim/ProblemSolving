@@ -35,7 +35,7 @@ namespace ps1389
             {
                 int sum = 0;
                 for (int j = 1; j <= n; j++)
-                    sum += (map[i, j] == Int32.MaxValue ? 0 : map[i, j]);
+                    sum += (map[i, j] == Int32.MaxValue/3 ? 0 : map[i, j]);
                 res.Add(new KeyValuePair<int, int>(sum, i));
             }
             res = res.OrderBy(x => x.Key).ToList();
