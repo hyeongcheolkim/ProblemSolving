@@ -1,4 +1,4 @@
-//baekjoon xx ps
+//baekjoon ps xx
 
 #include <stdio.h>
 
