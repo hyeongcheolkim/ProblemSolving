@@ -55,7 +55,9 @@
         "thread": "cpp",
         "stack": "cpp",
         "queue": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "unordered_map": "cpp",
+        "xhash": "cpp"
     },
     "cSpell.ignoreWords": [
         "baekjoon"
