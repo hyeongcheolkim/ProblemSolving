@@ -45,7 +45,6 @@ int main()
             else
                 edge[s][e] = -time;
         }
-        cost[1] = 0;
         for (int x = 0; x < n - 1; x++)
             for (int i = 1; i <= n; i++)
             {
