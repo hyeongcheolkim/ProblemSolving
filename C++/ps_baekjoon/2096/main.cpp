@@ -10,15 +10,13 @@ using namespace std;
 int main()
 {
     ios_base::sync_with_stdio(false);
+    constexpr int SIZE = 3;
     int n;
     cin >> n;
-    vector<int> mini(3);
-    vector<int> maxi(3);
-    vector<int> input(3);
-    vector<int> temp;
+    vector<int> mini(SIZE), maxi(SIZE), input(SIZE), temp;
     while (n--)
     {
-        for (int i = 0; i < input.size(); i++)
+        for (int i = 0; i < SIZE; i++)
             cin >> input[i];
         temp = maxi;
         temp[0] = input[0] + *max_element(maxi.begin(), maxi.end() - 1);
@@ -31,6 +29,6 @@ int main()
         temp[2] = input[2] + *min_element(mini.begin() + 1, mini.end());
         mini = temp;
     }
-    cout << *max_element(maxi.begin(), maxi.end()) << " " << *min_element(mini.begin(), mini.end());
+    cout << *max_element(maxi.begin(), maxi.end()) << ' ' << *min_element(mini.begin(), mini.end());
     return 0;
 }
