@@ -38,7 +38,7 @@ int main()
         {
             int now = q.front();
             int cost = time[now];
-            if (q.front() == target)
+            if (now == target)
             {
                 dp[target] += time[target];
                 break;
