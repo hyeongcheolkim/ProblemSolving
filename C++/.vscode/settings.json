@@ -59,7 +59,13 @@
         "unordered_map": "cpp",
         "xhash": "cpp",
         "deque": "cpp",
-        "list": "cpp"
+        "list": "cpp",
+        "iomanip": "cpp",
+        "set": "cpp",
+        "unordered_set": "cpp",
+        "xlocmon": "cpp",
+        "xloctime": "cpp",
+        "xtree": "cpp"
     },
     "cSpell.ignoreWords": [
         "baekjoon"
