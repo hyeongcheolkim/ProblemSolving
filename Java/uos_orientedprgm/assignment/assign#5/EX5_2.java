@@ -2,6 +2,12 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+class ZeroDivideException extends Exception {
+    public ZeroDivideException() {
+        super("0으로 나눌수 없습니다");
+    }
+}
+
 public class EX5_2 extends JFrame implements ActionListener {
     private JPanel res, oper;
     private JTextField formula;
@@ -151,11 +157,5 @@ public class EX5_2 extends JFrame implements ActionListener {
 
     public static void main(String[] args) {
         new EX5_2();
-    }
-}
-
-class ZeroDivideException extends Exception {
-    public ZeroDivideException() {
-        super("0으로 나눌수 없습니다");
     }
 }
