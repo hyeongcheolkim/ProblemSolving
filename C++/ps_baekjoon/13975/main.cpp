@@ -1,4 +1,4 @@
-//baekjoon ps 11066
+//baekjoon ps 13975
 
 #include <iostream>
 #include <vector>
