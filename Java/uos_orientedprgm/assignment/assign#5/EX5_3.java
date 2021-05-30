@@ -14,23 +14,21 @@ public class EX5_3 extends JFrame implements ActionListener {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
 
-        cost1 = cost2 = cost3 = 0;
-
         TypePanel = new JPanel();
         ToppingPanel = new JPanel();
         SizePanel = new JPanel();
         HelloPanel = new JPanel();
         ActionPanel = new JPanel();
 
+        HelloPanel.add(new JLabel("자바 피자에 오신것을 환영합니다."));
+        cost1 = cost2 = cost3 = 0;
+
         TypePanel.setBorder(BorderFactory.createTitledBorder("종류"));
         ToppingPanel.setBorder(BorderFactory.createTitledBorder("추가토핑"));
         SizePanel.setBorder(BorderFactory.createTitledBorder("크기"));
-
         TypePanel.setLayout(new GridLayout(3, 1));
         ToppingPanel.setLayout(new GridLayout(4, 1));
         SizePanel.setLayout(new GridLayout(3, 1));
-
-        HelloPanel.add(new JLabel("자바 피자에 오신것을 환영합니다."));
 
         combo = new JRadioButton("콤보 (10000원)", false);
         potato = new JRadioButton("포테이토 (11000원)", false);
@@ -42,17 +40,6 @@ public class EX5_3 extends JFrame implements ActionListener {
         small = new JRadioButton("Small (5000원)", false);
         medium = new JRadioButton("Medium (6000원)", false);
         large = new JRadioButton("Large (7000원)", false);
-
-        combo.addActionListener(this);
-        potato.addActionListener(this);
-        bulgogi.addActionListener(this);
-        pimang.addActionListener(this);
-        cheese.addActionListener(this);
-        peperoni.addActionListener(this);
-        bacon.addActionListener(this);
-        small.addActionListener(this);
-        medium.addActionListener(this);
-        large.addActionListener(this);
 
         ButtonGroup Type, Topping, Size;
         Type = new ButtonGroup();
@@ -79,10 +66,21 @@ public class EX5_3 extends JFrame implements ActionListener {
         SizePanel.add(medium);
         SizePanel.add(large);
 
+        combo.addActionListener(this);
+        potato.addActionListener(this);
+        bulgogi.addActionListener(this);
+        pimang.addActionListener(this);
+        cheese.addActionListener(this);
+        peperoni.addActionListener(this);
+        bacon.addActionListener(this);
+        small.addActionListener(this);
+        medium.addActionListener(this);
+        large.addActionListener(this);
+
         JButton order, cancel;
         order = new JButton("주문");
         cancel = new JButton("취소");
-        cost = new JTextField(25);
+        cost = new JTextField(20);
         ActionPanel.add(order);
         ActionPanel.add(cancel);
         ActionPanel.add(cost);
@@ -91,7 +89,6 @@ public class EX5_3 extends JFrame implements ActionListener {
             cost.setText(temp + "원 입니다 조금만 기다려주세요!");
         });
         cancel.addActionListener(e -> {
-            // cost1 = cost2 = cost3 = 0;
             cost.setText("주문이 취소되었습니다");
         });
 
