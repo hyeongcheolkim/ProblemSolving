@@ -1,3 +1,10 @@
-import os
+inFp = open("C:/temp.txt","r")
 
-print (os.path.dirname(os.path.realpath(__file__)))
+inStr = inFp.readline()
+print(inStr)
+inStr = inFp.readline()
+print(inStr)
+inStr = inFp.readline()
+print(inStr)
+
+inFp.close()
