@@ -11,6 +11,6 @@ inFp = open(
 )
 
 strings = inFp.readlines()
-for i in range(0, 3):
+for i in range(len(strings)):
     print(str(i + 1) + ": " + strings[i], end="")
 inFp.close()
