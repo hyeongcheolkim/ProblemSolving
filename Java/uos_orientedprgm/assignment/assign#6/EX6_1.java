@@ -13,6 +13,7 @@ public class EX6_1 extends JFrame {
         setTitle("DiceGame");
         setSize(600, 300);
         setVisible(true);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(1, 2));
         number1 = number2 = 6;
@@ -52,62 +53,41 @@ public class EX6_1 extends JFrame {
 
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
-            g.drawRect(x, y, 50, 50);
+            g.drawRect(x, y,45,45);
             g.setColor(color);
-            g.fillRect(x, y, 50, 50);
+            g.fillRect(x, y, 45, 45);
             switch (number) {
                 case 1:
-                    g.drawRect(x + 20, y + 20, 5, 5);
                     g.setColor(Color.BLACK);
                     g.fillRect(x + 20, y + 20, 5, 5);
                     break;
                 case 2:
-                    g.drawRect(x + 10, y + 20, 5, 5);
-                    g.drawRect(x + 40, y + 20, 5, 5);
                     g.setColor(Color.BLACK);
                     g.fillRect(x + 10, y + 20, 5, 5);
-                    g.fillRect(x + 40, y + 20, 5, 5);
+                    g.fillRect(x + 30, y + 20, 5, 5);
                     break;
                 case 3:
-                    g.drawRect(x + 10, y + 10, 5, 5);
-                    g.drawRect(x + 20, y + 20, 5, 5);
-                    g.drawRect(x + 30, y + 30, 5, 5);
                     g.setColor(Color.BLACK);
                     g.fillRect(x + 10, y + 10, 5, 5);
                     g.fillRect(x + 20, y + 20, 5, 5);
                     g.fillRect(x + 30, y + 30, 5, 5);
                     break;
                 case 4:
-                    g.drawRect(x + 10, y + 10, 5, 5);
-                    g.drawRect(x + 10, y + 10, 5, 5);
-                    g.drawRect(x + 40, y + 30, 5, 5);
-                    g.drawRect(x + 40, y + 30, 5, 5);
                     g.setColor(Color.BLACK);
                     g.fillRect(x + 10, y + 10, 5, 5);
-                    g.fillRect(x + 10, y + 10, 5, 5);
-                    g.fillRect(x + 40, y + 30, 5, 5);
-                    g.fillRect(x + 40, y + 30, 5, 5);
+                    g.fillRect(x + 30, y + 10, 5, 5);
+                    g.fillRect(x + 10, y + 30, 5, 5);
+                    g.fillRect(x + 30, y + 30, 5, 5);
                     break;
                 case 5:
-                    g.drawRect(x + 10, y + 10, 5, 5);
-                    g.drawRect(x + 10, y + 10, 5, 5);
-                    g.drawRect(x + 30, y + 20, 5, 5);
-                    g.drawRect(x + 40, y + 30, 5, 5);
-                    g.drawRect(x + 40, y + 30, 5, 5);
                     g.setColor(Color.BLACK);
                     g.fillRect(x + 10, y + 10, 5, 5);
-                    g.fillRect(x + 10, y + 10, 5, 5);
-                    g.fillRect(x + 30, y + 20, 5, 5);
-                    g.fillRect(x + 40, y + 30, 5, 5);
-                    g.fillRect(x + 40, y + 30, 5, 5);
+                    g.fillRect(x + 30, y + 10, 5, 5);
+                    g.fillRect(x + 20, y + 20, 5, 5);
+                    g.fillRect(x + 10, y + 30, 5, 5);
+                    g.fillRect(x + 30, y + 30, 5, 5);
                     break;
                 case 6:
-                    g.drawRect(x + 10, y + 10, 5, 5);
-                    g.drawRect(x + 10, y + 20, 5, 5);
-                    g.drawRect(x + 10, y + 30, 5, 5);
-                    g.drawRect(x + 30, y + 10, 5, 5);
-                    g.drawRect(x + 30, y + 20, 5, 5);
-                    g.drawRect(x + 30, y + 30, 5, 5);
                     g.setColor(Color.BLACK);
                     g.fillRect(x + 10, y + 10, 5, 5);
                     g.fillRect(x + 10, y + 20, 5, 5);
