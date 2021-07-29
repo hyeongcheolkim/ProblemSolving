@@ -6,7 +6,6 @@
 #include <utility>
 #include <algorithm>
 #include <functional>
-#include <limits>
 
 using namespace std;
 using pos = pair<int, int>;
@@ -18,7 +17,6 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-    constexpr int INF = numeric_limits<int>::max() / 3;
     int n, w;
     cin >> n >> w;
     deque<pos> car_a(w), car_b;
