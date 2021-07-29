@@ -37,7 +37,6 @@ int main()
         int &now = dp[a][b];
         if (now != -1)
             return now;
-        now = INF;
         int next_incident = max(a, b) + 1;
         int dist_a = recursion(next_incident, b) + distance(car_a[a], car_a[next_incident]);
         int dist_b = recursion(a, next_incident) + distance(car_b[b], car_b[next_incident]);
