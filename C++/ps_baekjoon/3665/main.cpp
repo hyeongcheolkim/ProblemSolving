@@ -7,7 +7,7 @@
 
 using namespace std;
 
-enum error
+enum state
 {
     case_normal,
     case_impossible,
@@ -49,7 +49,7 @@ int main()
             degree[from]++;
         }
         queue<int> q;
-        error flag = error::case_normal;
+        state flag = state::case_normal;
         for (int i = 1; i <= n; i++)
             if (degree[i] == 0)
                 q.push(i);
@@ -57,33 +57,33 @@ int main()
         {
             if (q.size() == 0)
             {
-                flag = error::case_impossible;
+                flag = state::case_impossible;
                 break;
             }
             if (q.size() >= 2)
             {
-                flag = error::case_question;
+                flag = state::case_question;
                 break;
             }
-            int team = q.front();
+            int now_team = q.front();
             q.pop();
-            ranking[i] = team;
-            for (int i = 1; i <= n; i++)
-                if (graph[team][i])
-                    if (--degree[i] == 0)
-                        q.push(i);
+            ranking[i] = now_team;
+            for (int next_team = 1; next_team <= n; next_team++)
+                if (graph[now_team][next_team])
+                    if (--degree[next_team] == 0)
+                        q.push(next_team);
         }
         switch (flag)
         {
-        case error::case_normal:
+        case state::case_normal:
             for_each(ranking.begin() + 1, ranking.end(), [](const int &e)
                      { cout << e << ' '; });
             cout << '\n';
             break;
-        case error::case_impossible:
+        case state::case_impossible:
             cout << "IMPOSSIBLE\n";
             break;
-        case error::case_question:
+        case state::case_question:
             cout << "?\n";
             break;
         default:
