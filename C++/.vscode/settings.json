@@ -66,7 +66,17 @@
         "xlocmon": "cpp",
         "xloctime": "cpp",
         "xtree": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "charconv": "cpp",
+        "format": "cpp",
+        "forward_list": "cpp",
+        "fstream": "cpp",
+        "locale": "cpp",
+        "numbers": "cpp",
+        "numeric": "cpp",
+        "optional": "cpp",
+        "xlocbuf": "cpp",
+        "xlocmes": "cpp"
     },
     "cSpell.ignoreWords": [
         "baekjoon"
