@@ -1,21 +1,21 @@
 //baekjoon ps 11066
 
 #include <iostream>
-#include <vector>
 #include <limits>
+#include <array>
 #include <algorithm>
 
 using namespace std;
 
 constexpr int INF = numeric_limits<int>::max();
-vector<int> arr, sum;
-vector<vector<int>> dp;
+int arr[501], sum[501];
+array<array<int, 501>, 501> dp;
 
 int dfs(int lt, int rt)
 {
     static auto subtotal = [&](int begin, int end)
     { return sum[end] - sum[begin - 1]; };
-    
+
     int &ret = dp[lt][rt];
     if (ret != INF)
         return ret;
@@ -39,9 +39,9 @@ int main()
     {
         int k;
         cin >> k;
-        sum = move(vector<int>(k + 1));
-        arr = move(vector<int>(k + 1));
-        dp = move(vector<vector<int>>(k + 1, vector<int>(k + 1, INF)));
+        sum[0] = 0;
+        for (auto &e : dp)
+            e.fill(INF);
         for (int i = 1; i <= k; i++)
         {
             cin >> arr[i];
