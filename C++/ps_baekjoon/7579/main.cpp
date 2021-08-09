@@ -28,8 +28,7 @@ int main()
     dp[0] = 0;
     for (const auto &e : arr)
     {
-        int memory = e.first;
-        int cost = e.second;
+        auto [memory, cost] = e;
         for (int i = sum; i >= memory; i--)
             dp[i] = min(dp[i], dp[i - memory] + cost);
     }
