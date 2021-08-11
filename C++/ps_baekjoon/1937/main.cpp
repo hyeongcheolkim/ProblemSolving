@@ -27,9 +27,7 @@ int main()
         int &ret = dp[now_row][now_col];
         if (ret != 0)
             return ret;
-        else
-            ret = 1;
-        int temp = ret;
+        ret = 1;
         for (int direction = 0; direction < 4; ++direction)
         {
             int next_row = now_row + dr[direction];
@@ -37,7 +35,7 @@ int main()
             if (map[next_row][next_col] == OUT_OF_BOUND)
                 continue;
             if (map[now_row][now_col] < map[next_row][next_col])
-                ret = max(ret, temp + dfs(next_row, next_col));
+                ret = max(ret, dfs(next_row, next_col) + 1);
         }
         return ret;
     };
