@@ -12,15 +12,13 @@ int main()
     cout.tie(NULL);
     int n;
     cin >> n;
-    vector<int> graph(n + 1);
-    for (int i = 1; i <= n; ++i)
-        cin >> graph[i];
     vector<int> lcs;
     lcs.reserve(n);
     lcs.push_back(0);
-    for (int i = 1; i <= n; ++i)
+    for (int i = 0; i < n; ++i)
     {
-        int &now = graph[i];
+        int now;
+        cin >> now;
         if (lcs.back() < now)
             lcs.push_back(now);
         else
