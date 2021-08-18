@@ -87,7 +87,8 @@
         "regex": "cpp",
         "scoped_allocator": "cpp",
         "typeindex": "cpp",
-        "valarray": "cpp"
+        "valarray": "cpp",
+        "filesystem": "cpp"
     },
     "cSpell.ignoreWords": [
         "baekjoon"
