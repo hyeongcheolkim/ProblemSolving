@@ -128,8 +128,6 @@ int main()
         pos head = worm.get_head();
         if (map[head.row][head.col] == Map::APPLE)
         {
-            if (head == tail)
-                break;
             worm.add_tail(tail);
             map[head.row][head.col] = Map::BLANK;
         }
