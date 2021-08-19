@@ -1,10 +1,6 @@
 //baekjoon ps 16234
 
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <utility>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
 using pos = pair<int, int>;
