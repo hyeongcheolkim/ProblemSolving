@@ -24,7 +24,7 @@ int main()
         res[now_idx] = s.top().first;
         s.emplace(now_idx, now_height);
     }
-    for (int i = 1; i <= n;++i)
+    for (int i = 1; i <= n; ++i)
         cout << res[i] << ' ';
-        return 0;
+    return 0;
 }
