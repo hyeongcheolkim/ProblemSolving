@@ -9,6 +9,8 @@ ull cache[70][70];
 ull number_of_digits(int number, int last_value)
 {
     ull &ret = cache[number][last_value];
+    if (number == 1)
+        return 1;
     if (ret != 0)
         return ret;
     for (int idx = last_value; idx <= 9; ++idx)
@@ -21,8 +23,6 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(NULL);
     cout.tie(NULL);
-    for (int i = 0; i <= 9; ++i)
-        cache[1][i] = 1;
     int t;
     cin >> t;
     while (t--)
