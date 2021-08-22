@@ -7,9 +7,7 @@ int main()
     string s, t;
     cin >> s >> t;
     int s_size = s.size();
-    int reverse_state = 0;
     while (s_size != t.size())
-    {
         if (t.back() == 'A')
             t.pop_back();
         else
@@ -17,7 +15,6 @@ int main()
             t.pop_back();
             reverse(t.begin(), t.end());
         }
-    }
     cout << (s == t ? 1 : 0);
     return 0;
 }
