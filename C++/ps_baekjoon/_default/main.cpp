@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 using pos = pair<int, int>;
+
 constexpr int mxN = 5e1, dr[]{0, 0, +1, -1}, dc[]{+1, -1, 0, 0};
 constexpr char OUT_OF_BOUND = 0;
 int n, m, res = 0, cache[mxN + 2][mxN + 2];
