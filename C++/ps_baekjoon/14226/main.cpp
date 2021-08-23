@@ -2,7 +2,7 @@
 using namespace std;
 
 constexpr int mxN = 1e3;
-bool vst[2 * mxN + 1][2 * mxN + 1];
+bool vst[mxN + 1][mxN + 1];
 
 int main()
 {
