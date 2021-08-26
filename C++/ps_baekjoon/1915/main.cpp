@@ -16,10 +16,7 @@ int main()
             cin >> temp;
             board[i][j] = temp - '0';
             if (board[i][j] == 1)
-            {
-                board[i][j] += min({board[i - 1][j - 1], board[i - 1][j], board[i][j - 1]});
-                res = max(res, board[i][j]);
-            }
+                res = max(res, board[i][j] += min({board[i - 1][j - 1], board[i - 1][j], board[i][j - 1]}));
         }
     cout << pow(res, 2);
     return 0;
