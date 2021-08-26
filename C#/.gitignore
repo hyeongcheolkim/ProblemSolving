@@ -389,3 +389,6 @@ FodyWeavers.xsd
 
 #add
 *.json
+
+#my
+prc_sandbox/
