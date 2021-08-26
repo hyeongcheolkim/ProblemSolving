@@ -18,6 +18,6 @@ int main()
             if (board[i][j] == 1)
                 res = max(res, board[i][j] += min({board[i - 1][j - 1], board[i - 1][j], board[i][j - 1]}));
         }
-    cout << pow(reas, 2);
+    cout << pow(res, 2);
     return 0;
 }
