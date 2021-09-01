@@ -2,16 +2,17 @@
 using namespace std;
 using pos = pair<int, int>;
 
-constexpr int OUT_OF_BOUND = -1, NOT_VISIT = -1;
+constexpr int mxN = 1e2, OUT_OF_BOUND = -1, NOT_VISIT = -1;
 constexpr int dr[]{0, 0, +1, -1}, dc[]{+1, -1, 0, 0};
+int board[mxN + 2][mxN + 2], vst[mxN + 2][mxN + 2];
 
 int main()
 {
     cin.tie(0)->sync_with_stdio(0);
+    memset(board, OUT_OF_BOUND, sizeof(board));
+    memset(vst, NOT_VISIT, sizeof(vst));
     int m, n;
     cin >> m >> n;
-    vector<vector<int>> board(n + 2, vector<int>(m + 2, OUT_OF_BOUND));
-    vector<vector<int>> vst(n + 2, vector<int>(m + 2, NOT_VISIT));
     for (int i = 1; i <= n; ++i)
         for (int j = 1; j <= m; ++j)
         {
