@@ -28,30 +28,30 @@ int main()
         auto [now, now_cnt] = pq.top();
         auto [now_cost, now_vertex] = now;
         pq.pop();
-        if (now_cost <= dist[now_vertex][now_cnt])
-            for (const auto &e : graph[now_vertex])
+        if (now_cost > dist[now_vertex][now_cnt])
+            continue;
+        for (const auto &e : graph[now_vertex])
+        {
+            auto [next_cost, next_vertex] = e;
+            ull total_cost = now_cost + next_cost;
+            if (total_cost < dist[next_vertex][now_cnt])
             {
-                auto [next_cost, next_vertex] = e;
-                ull total_cost = now_cost + next_cost;
-                if (total_cost < dist[next_vertex][now_cnt])
-                {
-                    dist[next_vertex][now_cnt] = total_cost;
-                    pq.emplace(vertex{total_cost, next_vertex}, now_cnt);
-                }
+                dist[next_vertex][now_cnt] = total_cost;
+                pq.emplace(vertex{total_cost, next_vertex}, now_cnt);
             }
+        }
         if (k <= now_cnt)
             continue;
-        if (now_cost <= dist[now_vertex][now_cnt])
-            for (const auto &e : graph[now_vertex])
+        for (const auto &e : graph[now_vertex])
+        {
+            auto [next_cost, next_vertex] = e;
+            ull total_cost = now_cost;
+            if (total_cost < dist[next_vertex][now_cnt + 1])
             {
-                auto [next_cost, next_vertex] = e;
-                ull total_cost = now_cost;
-                if (total_cost < dist[next_vertex][now_cnt + 1])
-                {
-                    dist[next_vertex][now_cnt + 1] = total_cost;
-                    pq.emplace(vertex{total_cost, next_vertex}, now_cnt + 1);
-                }
+                dist[next_vertex][now_cnt + 1] = total_cost;
+                pq.emplace(vertex{total_cost, next_vertex}, now_cnt + 1);
             }
+        }
     }
     cout << *min_element(dist[n].begin(), dist[n].end());
     return 0;
