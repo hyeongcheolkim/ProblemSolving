@@ -3,15 +3,17 @@ using namespace std;
 using pos = tuple<int, int, int>;
 
 constexpr char out_of_bound = 0;
-constexpr int not_visit = -1, dr[]{0, 0, +1, -1}, dc[]{+1, -1, 0, 0}, INF = numeric_limits<int>::max() / 2;
+constexpr int mxN = 1e3, mxK = 1e1, not_visit = -1;
+constexpr int dr[]{0, 0, +1, -1}, dc[]{+1, -1, 0, 0}, INF = numeric_limits<int>::max() / 2;
+char terrain[mxN + 2][mxN + 2];
+int n, m, k, vst[mxN + 2][mxN + 2][mxK + 1];
 
 int main()
 {
     cin.tie(0)->sync_with_stdio(0);
-    int n, m, k;
     cin >> n >> m >> k;
-    vector<vector<char>> terrain(n + 2, vector<char>(m + 2, out_of_bound));
-    vector<vector<vector<int>>> vst(n + 2, vector<vector<int>>(m + 2, vector<int>(k + 1, not_visit)));
+    memset(terrain, out_of_bound, sizeof(terrain));
+    memset(vst, not_visit, sizeof(vst));
     for (int i = 1; i <= n; ++i)
         for (int j = 1; j <= m; ++j)
             cin >> terrain[i][j];
