@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+using ull = unsigned long long;
 
 int main()
 {
@@ -7,7 +8,7 @@ int main()
     int n;
     while (cin >> n, n != 0)
     {
-        unsigned long long res = 0;
+        ull res = 0;
         vector<int> heights(n);
         for (int i = 0; i < n; i++)
             cin >> heights[i];
@@ -18,7 +19,7 @@ int main()
             {
                 int height = heights[s.top()];
                 s.pop();
-                unsigned long long width = s.empty() ? now_idx : now_idx - s.top() - 1;
+                ull width = s.empty() ? now_idx : now_idx - s.top() - 1;
                 res = max(res, height * width);
             }
             s.push(now_idx);
@@ -27,7 +28,7 @@ int main()
         {
             int height = heights[s.top()];
             s.pop();
-            unsigned long long width = s.empty() ? n : n - s.top() - 1;
+            ull width = s.empty() ? n : n - s.top() - 1;
             res = max(res, height * width);
         }
         cout << res << '\n';
