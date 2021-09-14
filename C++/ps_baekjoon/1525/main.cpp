@@ -19,7 +19,7 @@ int main()
     }
     int init = stoi(str);
     queue<int> q;
-    map<int, int> vst;
+    unordered_map<int, int> vst;
     q.push(init);
     vst[init] = 0;
     while (!q.empty())
