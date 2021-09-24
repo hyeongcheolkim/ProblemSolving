@@ -1,6 +1,6 @@
 import sys
 
-sys.setrecursionlimit(10**9)
+sys.setrecursionlimit(10 ** 9)
 readline, write = (sys.stdin.readline, sys.stdout.write)
 direction = {"U": (-1, 0), "R": (0, +1), "D": (+1, 0), "L": (0, -1)}
 cnt = 0
@@ -10,10 +10,10 @@ not_visit = -1
 
 def dfs(row, col) -> bool:
     if maze[row][col] == out_of_bound:
-        return 1
+        return True
     if cache[row][col] != not_visit:
         return cache[row][col]
-    cache[row][col] = 0
+    cache[row][col] = False
     dr, dc = direction[maze[row][col]]
     cache[row][col] = dfs(row + dr, col + dc)
     return cache[row][col]
