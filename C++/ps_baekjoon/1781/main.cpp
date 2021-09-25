@@ -15,7 +15,7 @@ int main()
     sort(arr.begin(), arr.end());
     for (int i = arr.back().first; i > 0; --i)
     {
-        while (arr.back().first == i)
+        while (!arr.empty() && arr.back().first == i)
         {
             pq.push(arr.back().second);
             arr.pop_back();
