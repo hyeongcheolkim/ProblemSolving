@@ -4,10 +4,10 @@ using pos = pair<int, int>;
 
 constexpr int mxN = 20, out_of_bound = -1, GUEST = 2, dr[]{0, 0, +1, -1}, dc[]{+1, -1, 0, 0};
 int n, m, fuel, terrain[mxN + 2][mxN + 2];
-queue<pos> q, temp;
-pos taxi, dst[mxN + 2][mxN + 2];
 bool vst[mxN + 2][mxN + 2];
 vector<pos> guests;
+queue<pos> q, temp;
+pos taxi, dst[mxN + 2][mxN + 2];
 
 bool find_dst(pos destination)
 {
@@ -50,10 +50,7 @@ bool find_guest()
         }
     }
     q.swap(temp);
-    if (guests.empty())
-        return false;
-    else
-        return true;
+    return !guests.empty();
 }
 
 void clear()
@@ -68,6 +65,7 @@ void clear()
 void init()
 {
     memset(terrain, out_of_bound, sizeof(terrain));
+    guests.reserve(400);
     cin >> n >> m >> fuel;
     for (int i = 1; i <= n; ++i)
         for (int j = 1; j <= n; ++j)
