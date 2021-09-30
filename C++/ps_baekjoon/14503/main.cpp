@@ -37,9 +37,7 @@ int main()
         {
             int nr = r + dr[direction][i];
             int nc = c + dc[direction][i];
-            if (terrain[nr][nc] == 1 || vst[nr][nc])
-                continue;
-            if (!(0 <= nr && nr < n && 0 <= nc && nc < m))
+            if (!(0 <= nr && nr < n && 0 <= nc && nc < m) || terrain[nr][nc] == 1 || vst[nr][nc])
                 continue;
             robot = {nr, nc};
             vst[nr][nc] = true;
