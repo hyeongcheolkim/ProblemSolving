@@ -8,7 +8,7 @@ board = [[False] * SIZE for _ in range(SIZE)]
 
 
 def dfs(r=SIZE // 2, c=SIZE // 2, level=0, case=1):
-    global total_case, n, p
+    global total_case
     if level == n:
         total_case += case
         return
