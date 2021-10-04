@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-constexpr int mxN = 14, dr[]{0,0,+1,-1}, dc[]{+1,-1,0,0};
+constexpr int mxN = 14, dr[]{0, 0, +1, -1}, dc[]{+1, -1, 0, 0};
 int n;
 double possibility[4], res;
 bool vst[mxN * 2 + 1][mxN * 2 + 1];
