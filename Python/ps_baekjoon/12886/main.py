@@ -2,8 +2,8 @@ import sys
 from queue import Queue
 
 readline, write = (sys.stdin.readline, sys.stdout.write)
-mxN = 1500
-vst = [[False] * (mxN + 1) for _ in range(mxN + 1)]
+mxN = 500
+vst = [[False] * (mxN * 3 + 1) for _ in range(mxN * 3 + 1)]
 q = Queue()
 
 
@@ -17,7 +17,7 @@ vst[a][b] = True
 while not q.empty():
     a, b = q.get()
     c = total - a - b
-    temp = [a, b, c]
+    temp = (a, b, c)
     for i in range(3):
         for j in range(3):
             if temp[i] < temp[j]:
