@@ -2,7 +2,6 @@ import sys
 
 sys.setrecursionlimit(10 ** 6)
 readline, write = (sys.stdin.readline, sys.stdout.write)
-uf = []
 edges = []
 res = []
 x = 0
@@ -35,9 +34,9 @@ for i in range(1, n + 1):
         if i == j or i == 1 or j == 1:
             continue
         edges.append((graph[i][j], i, j))
-edges.sort(reverse=True)
-while edges:
-    cost, vertex1, vertex2 = edges.pop()
+edges.sort()
+for edge in edges:
+    cost, vertex1, vertex2 = edge
     if uni(vertex1, vertex2):
         x += cost
         res.append((vertex1, vertex2))
