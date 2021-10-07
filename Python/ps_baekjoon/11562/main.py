@@ -19,4 +19,4 @@ k = int(readline())
 for _ in range(k):
     s, e = [int(i) for i in readline().split()]
     res.append(f"{graph[s][e]}\n")
-write("".join(str(i) for i in res))
+write("".join(i for i in res))
