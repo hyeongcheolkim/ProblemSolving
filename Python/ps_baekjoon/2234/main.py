@@ -3,14 +3,14 @@ from queue import Queue
 from collections import defaultdict
 
 readline, write = (sys.stdin.readline, sys.stdout.write)
+graph = defaultdict(set)
 q = Queue()
 room = {}
+index = 1
 
 n, m = [int(i) for i in readline().split()]
 board = [[int(i) for i in readline().split()][:n] for _ in range(m)]
-graph = defaultdict(set)
 vst = [[0] * (n) for _ in range(m)]
-index = 1
 for i in range(m):
     for j in range(n):
         if not vst[i][j]:
