@@ -35,5 +35,5 @@ for i in range(m):
                     cnt += 1
             room[index] = cnt
             index += 1
-maxi = max([room[t[0]] + room[t[1]] for t in [(key, val) for key in graph for val in graph[key]]])
+maxi = max([room[key] + room[val] for key in graph for val in graph[key]])
 write(f"{len(room)}\n{max(room.values())}\n{maxi}")
