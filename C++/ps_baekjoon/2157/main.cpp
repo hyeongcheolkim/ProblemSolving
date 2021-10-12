@@ -11,7 +11,7 @@ int main()
     cin.tie(0)->sync_with_stdio(0);
     cin >> n >> m >> k;
     graph.resize(n + 1);
-    dp = vector<vector<int>>(m, vector<int>(n + 1, -INF));
+    dp.assign(m, vector<int>(n + 1, -INF));
     dp[0][1] = 0;
     while (k--)
     {
