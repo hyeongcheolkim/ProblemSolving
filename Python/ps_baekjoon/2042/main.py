@@ -49,9 +49,7 @@ class SegTree:
         return self.tree[node]
 
 
-data = [0]
-for _ in range(n):
-    data.append([int(i) for i in readline().split()][0])
+data = [0] + [[int(i) for i in readline().split()][0] for _ in range(n)]
 segTree = SegTree(data, n)
 for _ in range(m + k):
     a, b, c = [int(i) for i in readline().split()]
