@@ -11,13 +11,10 @@ private:
     vector<ll> tree;
     const vector<ll>& data;
 public:
-    SegTree(const vector<ll>& data) :data{data}
-    {
-        tree.resize(data.size() * 4);
-    }
-
+    SegTree(const vector<ll>& data) :data{data} { tree.resize(data.size() * 4); }
+    
     ll merge(ll left, ll right) { return (left * right) % MOD; }
-
+    
     ll build(int node, int nodeLeft, int nodeRight)
     {
         if (nodeLeft == nodeRight)
@@ -27,7 +24,7 @@ public:
         ll rightVal = build(node * 2 + 1, mid + 1, nodeRight);
         return tree[node] = merge(leftVal, rightVal);
     }
-
+    
     ll query(int left, int right, int node, int nodeLeft, int nodeRight)
     {
         if (left <= nodeLeft && nodeRight <= right)
@@ -39,7 +36,7 @@ public:
         ll rightVal = query(left, right, node * 2 + 1, mid + 1, nodeRight);
         return merge(leftVal, rightVal);
     }
-
+    
     ll update(int index, ll newVal, int node, int nodeLeft, int nodeRight)
     {
         if (index < nodeLeft || nodeRight < index)
