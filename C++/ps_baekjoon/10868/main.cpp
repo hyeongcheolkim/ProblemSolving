@@ -14,7 +14,7 @@ public:
 
     int merge(int left, int right) { return min(left, right); }
 
-    int build(int node, int nodeLeft, int nodeRight)
+    int build(int node = 1, int nodeLeft = 1, int nodeRight = n)
     {
         if (nodeLeft == nodeRight)
             return tree[node] = data[nodeLeft];
@@ -24,7 +24,7 @@ public:
         return tree[node] = merge(leftVal, rightVal);
     }
 
-    int query(int left, int right, int node, int nodeLeft, int nodeRight)
+    int query(int left, int right, int node = 1, int nodeLeft = 1, int nodeRight = n)
     {
         if (right < nodeLeft || nodeRight < left)
             return INF;
@@ -45,12 +45,12 @@ int main()
     for (int i = 1; i <= n; ++i)
         cin >> data[i];
     SegTree st(data);
-    st.build(1, 1, n);
+    st.build();
     while (m--)
     {
         int a, b;
         cin >> a >> b;
-        cout << st.query(a, b, 1, 1, n) << '\n';
+        cout << st.query(a, b) << '\n';
     }
     return 0;
 }
