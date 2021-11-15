@@ -26,6 +26,7 @@ void dfs(int idx)
 
 void init()
 {
+    cin >> n;
     cnt = 0;
     arr.resize(0);
     arr.reserve(n);
@@ -39,7 +40,6 @@ int main()
     cin >> t;
     while (t--)
     {
-        cin >> n;
         init();
         for (int i = 0; i < n; ++i)
         {
