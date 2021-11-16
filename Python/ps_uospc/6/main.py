@@ -10,5 +10,5 @@ arr2 = [int(t, base) for base in range(int(max(t)) + 1, 10 + 1)]
 for i in arr1:
     for j in arr2:
         if i == j:
-            cnt+=1
+            cnt += 1
 write(f"{cnt}")
