@@ -3,7 +3,7 @@ using namespace std;
 using ll = long long;
 
 constexpr int mxN = 1e4;
-int n, tank[mxN + 1], surface[mxN + 1], height[mxN + 1];
+int n, surface[mxN + 1], height[mxN + 1];
 ll res[mxN + 1];
 vector<vector<pair<int, int>>> graph;
 
@@ -27,10 +27,7 @@ int main()
     cin >> n;
     graph.resize(n + 1);
     for (int i = 1; i <= n; ++i)
-    {
         cin >> surface[i] >> height[i];
-        tank[i] = surface[i] * height[i];
-    }
     for (int i = 0; i < n - 1; ++i)
     {
         int u, v, h;
