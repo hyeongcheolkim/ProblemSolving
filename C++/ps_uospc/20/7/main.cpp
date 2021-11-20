@@ -7,7 +7,7 @@ int n, card[mxN + 1], dp[mxN + 1][mxN + 1], acc[mxN + 1];
 int fnc(int left = 1, int right = n)
 {
     int& ret = dp[left][right];
-    if (dp[left][right] != INF)
+    if (ret != INF)
         return ret;
     if (right - left == 1)
         return ret = card[left] + card[right];
