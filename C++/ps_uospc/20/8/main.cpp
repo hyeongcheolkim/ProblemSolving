@@ -27,15 +27,11 @@ int main()
         }
     for (int i = 0; i < n; ++i)
         for (int j = i; j < n; ++j)
-        {
-            if (j - i + 1 < m)
-                continue;
-            if (pre[i] + suf[j] >= m)
+            if (j - i + 1 >= m && pre[i] + suf[j] >= m)
             {
                 cout << "YES";
                 exit(0);
             }
-        }
     cout << "NO";
     return 0;
 }
