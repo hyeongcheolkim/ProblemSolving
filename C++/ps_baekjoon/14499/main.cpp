@@ -10,15 +10,11 @@ private:
     int row, col;
     int top, bottom, up, down, left, right;
 public:
-    Dice(const int& row, const int& col) {
+    Dice(const int& row, const int& col)
+    {
         this->row = row;
         this->col = col;
-        top = 0;
-        bottom = 0;
-        up = 0;
-        down = 0;
-        left = 0;
-        right = 0;
+        top = bottom = up = down = left = right = 0;
     }
     bool move_up()
     {
@@ -68,9 +64,9 @@ public:
         right = temp;
         return true;
     }
+    void set_bot(const int& num) { bottom = num; }
     int get_top() { return top; }
     int get_bot() { return bottom; }
-    void set_bot(const int& num) { bottom = num; }
     int get_row() { return row; }
     int get_col() { return col; }
 };
@@ -90,21 +86,11 @@ int main()
         cin >> oper;
         switch (oper)
         {
-        case 1:
-            flag = dice.move_right();
-            break;
-        case 2:
-            flag = dice.move_left();
-            break;
-        case 3:
-            flag = dice.move_up();
-            break;
-        case 4:
-            flag = dice.move_down();
-            break;
-        default:
-            flag = false;
-            break;
+        case 1: flag = dice.move_right(); break;
+        case 2: flag = dice.move_left(); break;
+        case 3: flag = dice.move_up(); break;
+        case 4: flag = dice.move_down(); break;
+        default: flag = false; break;
         }
         if (flag)
         {
