@@ -13,23 +13,23 @@ public:
     Dice(const int& row, const int& col) {
         this->row = row;
         this->col = col;
-        this->top = 0;
-        this->bottom = 0;
-        this->up = 0;
-        this->down = 0;
-        this->left = 0;
-        this->right = 0;
+        top = 0;
+        bottom = 0;
+        up = 0;
+        down = 0;
+        left = 0;
+        right = 0;
     }
     bool move_up()
     {
         if (row - 1 < 0)
             return false;
         --row;
-        int temp = this->top;
-        this->top = this->down;
-        this->down = this->bottom;
-        this->bottom = this->up;
-        this->up = temp;
+        int temp = top;
+        top = down;
+        down = bottom;
+        bottom = up;
+        up = temp;
         return true;
     }
     bool move_down()
@@ -37,11 +37,11 @@ public:
         if (row + 1 >= n)
             return false;
         ++row;
-        int temp = this->top;
-        this->top = this->up;
-        this->up = this->bottom;
-        this->bottom = this->down;
-        this->down = temp;
+        int temp = top;
+        top = up;
+        up = bottom;
+        bottom = down;
+        down = temp;
         return true;
     }
     bool move_left()
@@ -49,11 +49,11 @@ public:
         if (col - 1 < 0)
             return false;
         --col;
-        int temp = this->top;
-        this->top = this->right;
-        this->right = this->bottom;
-        this->bottom = this->left;
-        this->left = temp;
+        int temp = top;
+        top = right;
+        right = bottom;
+        bottom = left;
+        left = temp;
         return true;
     }
     bool move_right()
@@ -61,18 +61,18 @@ public:
         if (col + 1 >= m)
             return false;
         ++col;
-        int temp = this->top;
-        this->top = this->left;
-        this->left = this->bottom;
-        this->bottom = this->right;
-        this->right = temp;
+        int temp = top;
+        top = left;
+        left = bottom;
+        bottom = right;
+        right = temp;
         return true;
     }
-    int get_top() { return this->top; }
-    int get_bot() { return this->bottom; }
-    void set_bot(const int& num) { this->bottom = num; }
-    int get_row() { return this->row; }
-    int get_col() { return this->col; }
+    int get_top() { return top; }
+    int get_bot() { return bottom; }
+    void set_bot(const int& num) { bottom = num; }
+    int get_row() { return row; }
+    int get_col() { return col; }
 };
 
 int main()
