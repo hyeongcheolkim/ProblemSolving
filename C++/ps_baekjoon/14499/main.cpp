@@ -86,11 +86,11 @@ int main()
         cin >> oper;
         switch (oper)
         {
-        case 1: flag = dice.move_right(); break;
-        case 2: flag = dice.move_left(); break;
-        case 3: flag = dice.move_up(); break;
-        case 4: flag = dice.move_down(); break;
-        default: flag = false; break;
+            case 1: flag = dice.move_right(); break;
+            case 2: flag = dice.move_left(); break;
+            case 3: flag = dice.move_up(); break;
+            case 4: flag = dice.move_down(); break;
+            default: flag = false; break;
         }
         if (flag)
         {
