@@ -10,6 +10,7 @@ int main()
     {
         cin.ignore();
         vector<vector<string>> data;
+        data.reserve(n);
         bool flag = true;
         cout << "Group " << cnt++ << '\n';
         for (int iter = 0; iter < n; ++iter)
