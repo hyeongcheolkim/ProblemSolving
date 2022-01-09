@@ -18,7 +18,7 @@ int main()
             string input;
             getline(cin, input);
             auto parse = input | views::split(' ') | views::transform([](auto v) {auto c = v | views::common; return string(c.begin(), c.end()); });
-            data.push_back(vector<string>{parse.begin(), parse.end()});
+            data.emplace_back(parse.begin(), parse.end());
         }
         for (int i = 0; i < n; ++i)
         {
