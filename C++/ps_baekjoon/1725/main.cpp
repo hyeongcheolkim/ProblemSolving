@@ -12,9 +12,7 @@ private:
     const vector<int>& data;
 public:
     SegTree(const vector<int>& data) : data{data} { tree.resize(this->data.size() * 4); }
-
     int merge(int left, int right) { return data[left] <= data[right] ? left : right; }
-
     int build(int node = 1, int nodeLeft = 1, int nodeRight = n)
     {
         if (nodeLeft == nodeRight)
@@ -24,7 +22,6 @@ public:
         int rightVal = build(node * 2 + 1, mid + 1, nodeRight);
         return tree[node] = merge(leftVal, rightVal);
     }
-
     int query(int left, int right, int node = 1, int nodeLeft = 1, int nodeRight = n)
     {
         if (right < nodeLeft || nodeRight < left)
@@ -36,7 +33,6 @@ public:
         int rightVal = query(left, right, node * 2 + 1, mid + 1, nodeRight);
         return merge(leftVal, rightVal);
     }
-
     Long get_max(int left = 1, int right = n)
     {
         if (left > right)
