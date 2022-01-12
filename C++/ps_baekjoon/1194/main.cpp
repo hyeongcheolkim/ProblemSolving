@@ -31,13 +31,13 @@ int main()
         q.pop();
         for (int direction = 0; direction < 4; ++direction)
         {
-            int temp_key = key;
+            bitset<6> temp_key{key};
             int nr = r + dr[direction];
             int nc = c + dc[direction];
             const char& next = maze[nr][nc];
-            if (next == OUT_OF_BOUND || vst[nr][nc][temp_key] || next == '#')
+            if (next == OUT_OF_BOUND || vst[nr][nc][temp_key.to_ulong()] || next == '#')
                 continue;
-            if ('A' <= next && next <= 'F' && !(temp_key & (1 << (next - 'A'))))
+            if ('A' <= next && next <= 'F' && !temp_key.test(next - 'A'))
                 continue;
             if (next == '1')
             {
@@ -45,9 +45,9 @@ int main()
                 continue;
             }
             if ('a' <= next && next <= 'f')
-                temp_key |= (1 << (next - 'a'));
-            vst[nr][nc][temp_key] = true;
-            q.emplace(nr, nc, cnt + 1, temp_key);
+                temp_key.set(next - 'a');
+            vst[nr][nc][temp_key.to_ulong()] = true;
+            q.emplace(nr, nc, cnt + 1, temp_key.to_ulong());
         }
     }
     cout << (res == INF ? -1 : res);
