@@ -2,7 +2,7 @@
 using namespace std;
 
 constexpr int INF = numeric_limits<int>::max() / 2;
-int n, m, max_time_lock;
+int n, m, min_time_with_lock;
 vector<vector<pair<int, int>>> graph;
 vector<int> dist, trace;
 map<int, map<int, bool>> lock_edge;
@@ -33,16 +33,16 @@ int min_dist()
     return dist[n];
 }
 
-void min_dist_lock_edge(int& ret, int num = n)
+void min_dist_lock(int& ret, int num = n)
 {
     if (num == 1)
         return;
     int to = num;
     int from = trace[num];
     lock_edge[from][to] = lock_edge[to][from] = true;
-    ret = max(max_time_lock, min_dist());
+    ret = max(ret, min_dist());
     lock_edge[from][to] = lock_edge[to][from] = false;
-    min_dist_lock_edge(ret, from);
+    min_dist_lock(ret, from);
 }
 
 int main()
@@ -58,7 +58,7 @@ int main()
         graph[to].emplace_back(cost, from);
     }
     int min_time_no_lock = min_dist();
-    min_dist_lock_edge(max_time_lock);
-    cout << (max_time_lock == INF ? -1 : max_time_lock - min_time_no_lock);
+    min_dist_lock(min_time_with_lock);
+    cout << (min_time_with_lock == INF ? -1 : min_time_with_lock - min_time_no_lock);
     return 0;
 }
