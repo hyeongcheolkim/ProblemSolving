@@ -8,9 +8,10 @@ vector<int> dist, trace;
 map<int, map<int, bool>> lock_edge;
 priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
 
-int min_dist()
+int min_dist(bool chase_trace)
 {
-    trace.assign(n + 1, 0);
+    if (chase_trace)
+        trace.assign(n + 1, 0);
     dist.assign(n + 1, INF);
     pq.emplace(0, 1);
     dist[1] = 0;
@@ -25,7 +26,8 @@ int min_dist()
             {
                 if (lock_edge[now][next])
                     continue;
-                trace[next] = now;
+                if (chase_trace)
+                    trace[next] = now;
                 dist[next] = now_cost + next_cost;
                 pq.emplace(dist[next], next);
             }
@@ -40,7 +42,7 @@ void min_dist_lock(int& ret, int num = n)
     int to = num;
     int from = trace[num];
     lock_edge[from][to] = lock_edge[to][from] = true;
-    ret = max(ret, min_dist());
+    ret = max(ret, min_dist(false));
     lock_edge[from][to] = lock_edge[to][from] = false;
     min_dist_lock(ret, from);
 }
@@ -57,7 +59,7 @@ int main()
         graph[from].emplace_back(cost, to);
         graph[to].emplace_back(cost, from);
     }
-    int min_time_no_lock = min_dist();
+    int min_time_no_lock = min_dist(true);
     min_dist_lock(min_time_with_lock);
     cout << (min_time_with_lock == INF ? -1 : min_time_with_lock - min_time_no_lock);
     return 0;
