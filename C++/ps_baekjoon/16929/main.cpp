@@ -7,16 +7,15 @@ int n, m;
 vector<vector<char>> board;
 vector<vector<bool>> vst;
 
-void solve(bool& ret, int cnt, int start_row, int start_col, int next_row, int next_col)
+void solve(bool& ret, int cnt, int start_row, int start_col, int row, int col)
 {
-    if (ret)
-        return;
-    const char& start = board[start_row][start_col];
     for (int direction = 0; direction < 4; ++direction)
     {
-        int nr = next_row + dr[direction];
-        int nc = next_col + dc[direction];
-        if (board[nr][nc] == OUT_OF_BOUND || board[nr][nc] != start)
+        if (ret)
+            return;
+        int nr = row + dr[direction];
+        int nc = col + dc[direction];
+        if (board[nr][nc] == OUT_OF_BOUND || board[nr][nc] != board[start_row][start_col])
             continue;
         if (nr == start_row && nc == start_col && cnt + 1 >= 4)
         {
