@@ -15,7 +15,6 @@ unordered_map<string, long long> table
     {"white", 9},
 };
 
-
 int main()
 {
     cin.tie(0)->sync_with_stdio(0);
