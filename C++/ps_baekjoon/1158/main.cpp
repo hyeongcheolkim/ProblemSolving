@@ -2,7 +2,7 @@
 using namespace std;
 
 int n, k;
-list<int> lt, res;
+deque<int> lt, res;
 
 int main()
 {
@@ -19,7 +19,7 @@ int main()
         lt.pop_front();
     }
     cout << '<';
-    for_each(res.begin(), --res.end(), [](const auto& e) {cout << e << ", "; });
+    for_each(res.begin(), res.end() - 1, [](const auto& e) {cout << e << ", "; });
     cout << res.back() << '>';
     return 0;
 }
