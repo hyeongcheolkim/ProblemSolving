@@ -15,7 +15,7 @@ int main()
         if (i % k == 0)
             res.push_back(dq.front());
         else
-            dq.emplace_back(dq.front());
+            dq.push_back(dq.front());
         dq.pop_front();
     }
     cout << '<';
