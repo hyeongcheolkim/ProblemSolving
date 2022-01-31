@@ -32,10 +32,7 @@ int main()
             continue;
         for (const auto& [out_cost, next] : graph[now])
             if (int next_cost = in_cost + out_cost; next_cost < dist[next])
-            {
-                dist[next] = next_cost;
-                pq.emplace(next_cost, next);
-            }
+                pq.emplace(dist[next] = next_cost, next);
     }
     cout << dist[t];
     return 0;
