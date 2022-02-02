@@ -2,7 +2,7 @@
 using namespace std;
 using pos = pair<int, int>;
 
-constexpr int INF = numeric_limits<int>::max() / 2, mxM = 20;
+constexpr int INF = numeric_limits<int>::max() / 2;
 int t, n, m;
 vector<int> dist, trace;
 priority_queue<pos, vector<pos>, greater<pos>> pq;
