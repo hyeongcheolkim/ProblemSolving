@@ -3,7 +3,7 @@ using namespace std;
 using Long = long long;
 
 enum class oper { NUM, POP, INV, DUP, SWP, ADD, SUB, MUL, DIV, MOD, END };
-map<string, oper> oper_dict
+unordered_map<string, oper> oper_dict
 {
     {"NUM", oper::NUM},
     {"POP", oper::POP},
@@ -26,7 +26,7 @@ private:
     bool err_flag;
 public:
     GoStack(vector<string>& operation) : operation{operation} {};
-    void clear_stack()
+    void clear()
     {
         err_flag = false;
         stack<Long> temp;
@@ -63,6 +63,7 @@ public:
         else
             cout << s.top() << '\n';
     }
+private:
     void ERR() { err_flag = true; }
     void NUM(const Long& x) { s.push(x); }
     void POP()
@@ -170,9 +171,9 @@ int main()
     vector<string> inputs;
     while (getline(cin, input), input != "QUIT")
     {
-        inputs.resize(0);
         if (input.empty())
             continue;
+        inputs.resize(0);
         while (input != "END")
         {
             inputs.push_back(input);
@@ -184,7 +185,7 @@ int main()
         {
             int num;
             cin >> num;
-            gs.clear_stack();
+            gs.clear();
             gs.set_init_val(num);
             gs.exec();
         }
