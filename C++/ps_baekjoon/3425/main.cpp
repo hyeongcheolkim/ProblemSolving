@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+using Long = long long;
 
 enum class oper { NUM, POP, INV, DUP, SWP, ADD, SUB, MUL, DIV, MOD, END };
 map<string, oper> oper_dict
@@ -20,18 +21,18 @@ map<string, oper> oper_dict
 class GoStack
 {
 private:
-    vector<string> operation;
-    stack<long long> s;
+    const vector<string>& operation;
+    stack<Long> s;
     bool err_flag;
 public:
     GoStack(vector<string>& operation) : operation{operation} {};
-    void set_init_val(long long num)
+    void clear_stack()
     {
         err_flag = false;
-        stack<long long> temp;
+        stack<Long> temp;
         s.swap(temp);
-        s.push(num);
     }
+    void set_init_val(const Long& num) { s.push(num); }
     void exec()
     {
         for (const auto& e : operation)
@@ -63,7 +64,7 @@ public:
             cout << s.top() << '\n';
     }
     void ERR() { err_flag = true; }
-    void NUM(int x) { s.push(x); }
+    void NUM(const Long& x) { s.push(x); }
     void POP()
     {
         if (s.empty()) { ERR(); return; }
@@ -98,7 +99,7 @@ public:
         s.pop();
         auto second = s.top();
         s.pop();
-        if (long long res = first + second; abs(res) > 1e9)
+        if (Long res = first + second; abs(res) > 1e9)
         {
             ERR();
             s.push(second);
@@ -114,7 +115,7 @@ public:
         s.pop();
         auto second = s.top();
         s.pop();
-        if (long long res = second - first; abs(res) > 1e9)
+        if (Long res = second - first; abs(res) > 1e9)
         {
             ERR();
             s.push(second);
@@ -130,7 +131,7 @@ public:
         s.pop();
         auto second = s.top();
         s.pop();
-        if (long long res = second * first; abs(res) > 1e9)
+        if (Long res = second * first; abs(res) > 1e9)
         {
             ERR();
             s.push(second);
@@ -166,9 +167,10 @@ int main()
     cin.tie(0)->sync_with_stdio(0);
     string input;
     int n;
+    vector<string> inputs;
     while (getline(cin, input), input != "QUIT")
     {
-        vector<string> inputs;
+        inputs.resize(0);
         if (input.empty())
             continue;
         while (input != "END")
@@ -182,6 +184,7 @@ int main()
         {
             int num;
             cin >> num;
+            gs.clear_stack();
             gs.set_init_val(num);
             gs.exec();
         }
