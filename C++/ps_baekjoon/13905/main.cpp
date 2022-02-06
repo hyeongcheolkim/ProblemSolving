@@ -30,6 +30,8 @@ bool uni(int a, int b)
 
 void dfs(int& ret, int now_cost = INF, int now_node = s, int target = e)
 {
+    if (ret != INF)
+        return;
     if (now_node == target)
     {
         ret = now_cost;
@@ -69,9 +71,9 @@ int main()
             ++cnt;
         }
     }
-    int ret = 0;
+    int ret = INF;
     vst[s] = true;
     dfs(ret);
-    cout << ret;
+    cout << (ret == INF ? 0 : ret);
     return 0;
 }
