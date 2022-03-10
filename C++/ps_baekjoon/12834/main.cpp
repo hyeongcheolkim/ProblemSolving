@@ -50,7 +50,11 @@ int main()
     auto dist_from_A = get_min_distance(A);
     auto dist_from_B = get_min_distance(B);
     for (const auto& member : members)
-        res += dist_from_A[member] + dist_from_B[member];
+    {
+        int d1 = (dist_from_A[member] == INF ? -1 : dist_from_A[member]);
+        int d2 = (dist_from_B[member] == INF ? -1 : dist_from_B[member]);
+        res += d1 + d2;
+    }
     cout << res;
     return 0;
 }
