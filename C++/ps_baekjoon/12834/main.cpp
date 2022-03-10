@@ -9,7 +9,7 @@ vector<vector<pair<int, int>>> graph;
 vector<int> get_min_distance(int start_node)
 {
     vector<int> dist(v + 1, INF);
-    priority_queue<pair<int, int>> pq;
+    priority_queue <pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
     pq.emplace(0, start_node);
     dist[start_node] = 0;
     while (!pq.empty())
@@ -25,6 +25,7 @@ vector<int> get_min_distance(int start_node)
                 pq.emplace(next_cost, next_node);
             }
     }
+    for_each(dist.begin(), dist.end(), [](auto& x) {return x == INF ? -1 : x; });
     return dist;
 }
 
@@ -50,11 +51,7 @@ int main()
     auto dist_from_A = get_min_distance(A);
     auto dist_from_B = get_min_distance(B);
     for (const auto& member : members)
-    {
-        int d1 = (dist_from_A[member] == INF ? -1 : dist_from_A[member]);
-        int d2 = (dist_from_B[member] == INF ? -1 : dist_from_B[member]);
-        res += d1 + d2;
-    }
+        res += dist_from_A[member] + dist_from_B[member];
     cout << res;
     return 0;
 }
