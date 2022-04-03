@@ -6,6 +6,7 @@ int main()
     cin.tie(0)->sync_with_stdio(0);
     int x;
     cin >> x;
-    cout << __builtin_popcount(x);
+    bitset<10> bs{x};
+    cout << bs.count();
     return 0;
 }
