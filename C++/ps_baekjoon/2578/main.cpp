@@ -4,8 +4,8 @@ using pos = pair<int, int>;
 
 constexpr int SIZE = 5;
 vector<pos> position;
-vector<vector<int>> vst;
-vector<vector<reference_wrapper<int>>> verticals, horizontals, diagonals(2);
+vector<vector<bool>> vst;
+vector<vector<vector<bool>::reference>> verticals, horizontals, diagonals(2);
 
 bool check(int num = 3)
 {
@@ -24,7 +24,7 @@ int main()
 {
     cin.tie(0)->sync_with_stdio(0);
     position.resize(SIZE * SIZE + 1);
-    vst.resize(SIZE + 1, vector<int>(SIZE + 1));
+    vst.resize(SIZE + 1, vector<bool>(SIZE + 1));
     for (int i = 1; i <= SIZE; ++i)
         for (int j = 1; j <= SIZE; ++j)
         {
@@ -34,7 +34,7 @@ int main()
         }
     for (int i = 1; i <= SIZE; ++i)
     {
-        vector<reference_wrapper<int>> vertical, horizontal;
+        vector<vector<bool>::reference> vertical, horizontal;
         for (int j = 1; j <= SIZE; ++j)
         {
             vertical.emplace_back(vst[i][j]);
