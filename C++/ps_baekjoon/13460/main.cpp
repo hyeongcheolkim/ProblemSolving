@@ -50,7 +50,7 @@ int main()
             q.pop();
             if (r == pos{0, 0} || b == pos{0, 0})
                 continue;
-            for (pair<pos, pos>(*e)(pos, pos) : {left, right, down, up})
+            for (pair<pos, pos>(*e)(pos, pos) : {&left, &right, &down, &up})
             {
                 auto [nr, nb] = (*e)(r, b);
                 if (nr == pos{0, 0} && nb != pos{0, 0})
