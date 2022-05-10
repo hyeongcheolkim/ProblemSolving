@@ -9,7 +9,7 @@ queue<pair<pos, pos>> q, tmp;
 pos red, blue, hole;
 bool vst[mxNM + 1][mxNM + 1][mxNM + 1][mxNM + 1];
 
-pair<pos, pos> transfer(pair<pos, pos>, int, int);
+pair<pos, pos> transfer(pos, pos, int, int, bool);
 pair<pos, pos> right(pos, pos);
 pair<pos, pos> left(pos, pos);
 pair<pos, pos> down(pos, pos);
@@ -50,7 +50,7 @@ int main()
             q.pop();
             if (r == pos{0, 0} || b == pos{0, 0})
                 continue;
-            for (pair<pos, pos>(*e)(pos, pos) : {&left, &right, &down, &up})
+            for (pair<pos, pos>(*e)(pos, pos) : {&left, & right, & down, & up})
             {
                 auto [nr, nb] = (*e)(r, b);
                 if (nr == pos{0, 0} && nb != pos{0, 0})
