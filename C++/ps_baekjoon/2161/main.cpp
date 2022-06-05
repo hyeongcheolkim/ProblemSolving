@@ -14,8 +14,7 @@ int main()
     {
         cout << cards.front() << ' ';
         cards.pop_front();
-        cards.push_back(cards.front());
-        cards.pop_front();
+        rotate(cards.begin(), cards.begin() + 1, cards.end());
     }
     cout << cards.front();
     return 0;
