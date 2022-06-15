@@ -12,7 +12,7 @@ int solve(int now = 0, int vst = 1)
     if (ret != 0)
         return ret;
     if (vst == ((1 << n) - 1))
-        return graph[now][0];
+        return ret = graph[now][0];
     ret = INF;
     for (int next = 0; next < n; ++next)
     {
