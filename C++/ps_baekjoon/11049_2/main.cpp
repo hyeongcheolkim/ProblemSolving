@@ -1,15 +1,13 @@
 #include <bits/stdc++.h>
 using namespace std;
+using mat = pair<int, int>;
 
 constexpr int INF = numeric_limits<int>::max() / 2;
 int n;
 vector<vector<int>> dp;
-vector<pair<int, int>> matrix;
+vector<mat> matrix;
 
-int calculate_cost(pair<int, int> a, pair<int, int> b)
-{
-    return a.first * a.second * b.second;
-}
+int calculate_cost(mat a, mat b) { return a.first * a.second * b.second; }
 
 int solve(int lt = 1, int rt = n)
 {
@@ -22,8 +20,8 @@ int solve(int lt = 1, int rt = n)
         return ret = calculate_cost(matrix[lt], matrix[rt]);
     for (int k = lt; k < rt; ++k)
     {
-        pair<int, int> left{matrix[lt].first, matrix[k].second};
-        pair<int, int> right{matrix[k + 1].first, matrix[rt].second};
+        mat left{matrix[lt].first, matrix[k].second};
+        mat right{matrix[k + 1].first, matrix[rt].second};
         int merge_cost = calculate_cost(left, right);
         ret = min(ret, solve(lt, k) + solve(k + 1, rt) + merge_cost);
     }
