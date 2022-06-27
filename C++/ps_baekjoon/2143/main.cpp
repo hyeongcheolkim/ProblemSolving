@@ -30,11 +30,8 @@ int main()
     sort(val_b.begin(), val_b.end());
     for (int i = 1; i <= n; ++i)
         for (int j = 0; j < i; ++j)
-        {
-            auto target = t - (acc_a[i] - acc_a[j]);
-            if (binary_search(val_b.begin(), val_b.end(), target))
+            if (auto target = t - (acc_a[i] - acc_a[j]); binary_search(val_b.begin(), val_b.end(), target))
                 cnt += upper_bound(val_b.begin(), val_b.end(), target) - lower_bound(val_b.begin(), val_b.end(), target);
-        }
     cout << cnt;
     return 0;
 }
