@@ -76,18 +76,8 @@ int main()
             int nc = c + weight * dc;
             if (!(1 <= nr && nr <= m && 1 <= nc && nc <= n))
                 continue;
-            if ([&]()->bool {
-                for (int i = 1; i <= weight; ++i)
-                {
-                    int ir = r + i * dr;
-                    int ic = c + i * dc;
-                    if (board[ir][ic] != 0)
-                        return true;
-                }
-                return false;
-            }()) continue;
             if (board[nr][nc] == 1)
-                continue;
+                break;
             if (vst[nr][nc][direct] > cnt + 1)
             {
                 vst[nr][nc][direct] = cnt + 1;
