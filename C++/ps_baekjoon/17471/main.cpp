@@ -7,7 +7,7 @@ vector<int> popuplation;
 vector<bool> vst;
 vector<vector<int>> graph;
 
-int bfs(int node, vector<bool>&& vst)
+int bfs(int node, vector<bool> vst)
 {
     queue<int> q;
     q.push(node);
