@@ -21,7 +21,7 @@ public:
 
     int sum() { return reduce(data.begin(), data.end(), 0, plus<int>()); }
 
-    int valid_data_ea() { return count_if(data.begin(), data.end(), [](auto e) {return e > 0; }); }
+    int valid_data_ea() { return count_if(data.begin(), data.end(), [](auto& e) {return e > 0; }); }
 };
 
 vector<pair<int, int>> get_remove_target()
