@@ -37,6 +37,8 @@ void command_move()
                 const auto& [direct_r, direct_c] = direct[d];
                 int dr = s * direct_r;
                 int dc = s * direct_c;
+                dr %= n;
+                dc %= n;
                 while (dr)
                 {
                     if (dr < 0)
