@@ -16,7 +16,7 @@ map<int, pair<int, int>> diff{
     {8, {+1, -1}},
 };
 
-pair<int, int> move_cloud(const pair<int, int>& pos, int direction, int s)
+pair<int, int> move_cloud(const pair<int, int>& pos, const int& direction, int s)
 {
     auto [r, c] = pos;
     const auto& [dr, dc] = diff[direction];
@@ -51,8 +51,7 @@ int main()
         vector<pair<int, int>> copy_target;
         vector<vector<bool>> vst(n + 2, vector<bool>(n + 2));
         cin >> d >> s;
-        for (auto& e : cloud)
-            e = move_cloud(e, d, s);
+        for_each(cloud.begin(), cloud.end(), [&](auto& e) {e = move_cloud(e, d, s); });
         for (const auto& [r, c] : cloud)
         {
             ++board[r][c];
