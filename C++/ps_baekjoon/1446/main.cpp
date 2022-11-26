@@ -3,7 +3,6 @@ using namespace std;
 
 int n, d, res = numeric_limits<int>::max() / 2;
 unordered_map<int, vector<pair<int, int>>> graph;
-vector<int> dist;
 
 void dfs(int now = 0, int acc = 0)
 {
@@ -23,8 +22,6 @@ int main()
 {
     cin.tie(0)->sync_with_stdio(0);
     cin >> n >> d;
-    dist.resize(d + 1);
-    iota(dist.begin(), dist.end(), 0);
     while (n--)
     {
         int from, to, cost;
