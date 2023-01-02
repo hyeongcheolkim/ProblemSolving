@@ -42,8 +42,8 @@ int main()
             if (board[i][j] == '#')
                 doors.emplace_back(i, j);
         }
-    for (const auto& d : {'L', 'D', 'U', 'R'})
-        q.emplace(doors.front().first, doors.front().second, direct[d]);
+    for (const auto& [ignore, direct_val] : direct)
+        q.emplace(doors.front().first, doors.front().second, direct_val);
     vst[doors.front().first][doors.front().second] = 0;
     while (!q.empty())
     {
