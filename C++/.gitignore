@@ -34,3 +34,6 @@
 # dir
 prc_sandbox/
 .vscode/
+
+#exe
+main
