@@ -1,12 +1,20 @@
-import java.util.*;
-import java.util.stream.*;
 import java.io.*;
 
 public class Main {
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
+    String readLine(){
+        try{
+            return br.readLine();
+        }catch(Exception e){
+            throw new RuntimeException(e);
+        }
+    }
+
+    void solve(){
+
+    }
     public static void main(String[] args) throws IOException {
-        
+        new Main().solve();
     }
 }
